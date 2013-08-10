@@ -32,6 +32,9 @@ def check_news():
 
   title = params.get("title", u"")
   body = params.get("body", u"")
+  url = params.get("url")
+  print url
+
   if (u"馬英九" in title) or (u"馬英九" in body):
     data = {
       "tags": ["解讀偏頗"],
@@ -69,17 +72,37 @@ def check_news():
     }
     return jsonify(data)
 
-  return '{"ok": true}', 404
+  cursor.execute("SELECT news_id FROM news_links WHERE url=%s LIMIT 1", url)
+  result = cursor.fetchone()
+  print result
+
+  if result==None:
+    return '{"ok": true}', 404
+
+  news_id = result[0]
+  cursor.execute("SELECT description FROM news WHERE id=%s LIMIT 1", news_id)
+  result = cursor.fetchone()
+
+  description = result[0]
+  print description
+
+  prove_links = []
+
+  cursor.execute("SELECT title, url FROM prove_links WHERE news_id=%s LIMIT 1", news_id)
+  result = cursor.fetchall()
+  for title, url in result:
+    prove_links.append({title: url})
+
+  data = {
+    "tags": ["解讀偏頗"],
+    "description": description,
+    "proveLinks": prove_links
+  }
+
+  return jsonify(data)
 
 @app.route("/api/report_news", methods = ['POST'])
 def report_news():
-  # params = request.json
-  # title = params['title']
-  # newsLinks = params['newsLinks']
-  # description = params['description']
-  # news_links = params['newsLinks']
-  # prove_links = params['proveLinks']
-
   title = request.form.get('title')
   description = request.form.get('description')
   news_links = [request.form.get('link')]
