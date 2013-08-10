@@ -87,7 +87,6 @@ def report_news():
 
   cursor.execute("INSERT INTO news (title, description) VALUES (%s, %s);", (title, description))
   news_id = db.insert_id()
-  db.commit()
 
   for url in news_links:
     sql = "INSERT INTO news_links (news_id, url) VALUES (%s, %s);"
@@ -98,6 +97,7 @@ def report_news():
     url = prove[title]
     sql = "INSERT INTO prove_links (news_id, title, url) VALUES (%s, %s, %s);"
     cursor.execute(sql, (news_id, title, url))
+  db.commit()
 
   return '{"ok": true}'
 
