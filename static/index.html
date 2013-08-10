@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body{ font-family:"微軟正黑體"; }
+      #page{ margin:auto; width:960px; background-color:#DDD; padding-bottom:30px; border:1px solid Black; border-radius:10px; }
+      #header{ background-color:#5755FF; }
+      #contain{ width:700px; margin:auto; }
+      form input[type="text"], textarea { border-radius:5px;  border: 1px solid #d9dbdd; padding: 0.4em 0em;  outline: none; }
+      .add{ background-color:Green; color:White; display:inline-block; width:20px; height:20px; text-align:center; border-radius:10px; box-shadow:1px 1px 1px #666; font-size:16px; font-weight:bold; }
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <div id="header">
+	<p style="color:White; font-size:36px; font-weight:bold;">新聞小幫手 回報網</p>
+      </div>
+      <div id="contain">
+	<form>
+	  <p>新聞標題: <input type="text" name="title" /></p>
+	  <p id="link_block">新聞連結1:<input type="text" name="link" />
+	  <span id="addLink_button" class="add" onclick="addLink(i++);" style="cursor:pointer;">+</span><br />
+	  </p>
+	  <p>標籤:
+	  <input type="checkbox" name="tag"/>錯誤內容
+	  <input type="checkbox" name="tag"/>斷章取義
+	  <input type="checkbox" name="tag"/>解讀偏頗
+	  </p>
+	  <p id="relativeLink_block">
+	  打臉新聞:<input type="text" name="r1_title" /> 連結:<input type="text" name="r1_link" />
+	  <span id="addRelativeLink_button" class="add" onclick="addRelativeLink(j++);" style="cursor:pointer;">+</span>
+	  <br />
+	  </p>
+	  <textarea rows="10" cols="85"></textarea><br />
+	  <input type="submit" value="回報"/>
+	</form>
+      </div>
+    </div>
+    <script src="jquery.js"></script>
+    <script>
+      var i=2;
+      var j=2;
+      function addLink(times){
+	$("#addLink_button").remove();
+	$("#link_block").append("新聞連結"+times+":<input type=\"text\" name=\"r"+times+"_link\" /><span id=\"addLink_button\" class=\"add\" onclick=\"addLink(i++);\" style=\"cursor:pointer;\">+</span><br />");
+      }
+      function addRelativeLink(times){
+	$("#addRelativeLink_button").remove();
+	$("#relativeLink_block").append("打臉新聞"+times+":<input type=\"text\" name=\"r"+times+"_title\" /> Link"+times+":<input type=\"text\" name=\"r"+times+"_link\" /><span id=\"addRelativeLink_button\" class=\"add\" onclick=\"addRelativeLink(j++);\" style=\"cursor:pointer;\">+</span><br />");
+      }
+    </script>
+  </body>
+</html>
