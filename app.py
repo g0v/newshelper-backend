@@ -40,6 +40,17 @@ def report_news():
   print title, newsLinks
   return '{"ok": true}'
 
+@app.route("/api/get_reports", methods = ['GET'])
+def get_reports():
+  return "{ \
+    ""count"": 3, \
+    ""result"": [ \
+        {""title"": ""xxxx"", ""link"": ""http://xxx""}, \
+        {""title"": ""xxxx"", ""link"": ""http://xxx""}, \
+        {""title"": ""xxxx"", ""link"": ""http://xxx""} \
+    ] \
+}"
+
 if __name__ == "__main__":
   app.run()
 
