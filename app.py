@@ -3,15 +3,23 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 from urlparse import urlparse
+import os
 import MySQLdb
+import re
 
 DATABASE_URL = "mysql://root@127.0.0.1/news"
 
 app = Flask(__name__)
 app.debug = True
 
-db = MySQLdb.connect(host='127.0.0.1', user='root', db="news")
-# db = MySQLdb.connect(host='127.0.0.1', user='root', password='?', db="news")
+db_url = os.getenv('DATABASE_URL')
+if db_url!=None:
+  matched = re.match(r'^mysql://([^:]*):([^@]*)@([^/]*)/(.*)$', db_url)
+  username, password, host, db = matched.groups()
+  db = MySQLdb.connect(host=host, user=username, passwd=password, db=db)
+else:
+  db = MySQLdb.connect(host='127.0.0.1', user='root', db="news")
+
 cursor = db.cursor()
 
 @app.route("/")
