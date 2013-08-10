@@ -28,6 +28,16 @@ def check_news():
       ]
     }
     return jsonify(data)
+  elif  (u"蔡英文" in title) or (u"蔡英文" in body):
+    data = {
+      "tags": ["斷章取義"],
+      "description": "品質差的資訊傳遞",
+      "proveLinks": [
+        {"來不及說出的心聲：蜜朵麗冰淇淋想給中天電視台記者的一封信": "http://www.newsmarket.com.tw/blog/16512/"}
+      ]
+    }
+    return jsonify(data)
+
   return '{"ok": true}', 404
 
 
