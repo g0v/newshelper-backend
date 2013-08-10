@@ -11,6 +11,7 @@ app = Flask(__name__)
 app.debug = True
 
 db = MySQLdb.connect(host='127.0.0.1', user='root', db="news")
+# db = MySQLdb.connect(host='127.0.0.1', user='root', password='?', db="news")
 cursor = db.cursor()
 
 @app.route("/")
@@ -51,6 +52,12 @@ def report_news():
   for url in news_links:
     sql = "INSERT INTO news_links (news_id, url) VALUES (%s, %s);"
     cursor.execute(sql, (news_id, url))
+
+  for prove in prove_links:
+    title = prove.iterkeys().next()
+    url = prove[title]
+    sql = "INSERT INTO prove_links (news_id, title, url) VALUES (%s, %s, %s);"
+    cursor.execute(sql, (news_id, title, url))
 
   return '{"ok": true}'
 
