@@ -1,0 +1,9 @@
+body{font-family:"微軟正黑體" }
+#page{ margin:auto; width:960px; background-color:#DDD; padding-bottom:30px; border:1px solid #777; border-radius:10px; }
+#header{ background-color:#5755FF; color:White; font-size:36px; font-weight:bold; border-top-left-radius:10px; border-top-right-radius:10px; padding:5px;}
+#contain{ width:700px; margin:auto; }	
+form input[type="text"], textarea { border-radius:5px;  border: 1px solid #d9dbdd; padding: 0.4em 0em;  outline: none; -moz-box-shadow: 3px 3px 3px #888888; /* 老的 Firefox */ box-shadow: 3px 3px 3px #888888;}
+form input[type="text"]{
+  width:252px;	
+}
+.add{ background-color:Green; color:White; display:inline-block; width:20px; height:20px; text-align:center; border-radius:10px; box-shadow:1px 1px 1px #666; font-size:16px; font-weight:bold; }
