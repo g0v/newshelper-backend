@@ -73,13 +73,17 @@ def check_news():
 
 @app.route("/api/report_news", methods = ['POST'])
 def report_news():
-  params = request.json
-  title = params['title']
-  newsLinks = params['newsLinks']
-  description = params['description']
+  # params = request.json
+  # title = params['title']
+  # newsLinks = params['newsLinks']
+  # description = params['description']
+  # news_links = params['newsLinks']
+  # prove_links = params['proveLinks']
 
-  news_links = params['newsLinks']
-  prove_links = params['proveLinks']
+  title = request.form.get('title')
+  description = request.form.get('description')
+  news_links = [request.form.get('link')]
+  prove_links = [{request.form.get('proveTitle'): request.form.get('proveLink')}]
 
   cursor.execute("INSERT INTO news (title, description) VALUES (%s, %s);", (title, description))
   news_id = db.insert_id()

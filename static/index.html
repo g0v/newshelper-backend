@@ -18,7 +18,7 @@
 	<p style="color:White; font-size:36px; font-weight:bold;">新聞小幫手 回報網</p>
       </div>
       <div id="contain">
-	<form>
+	<form method="POST" action="/api/report_news">
 	  <p>新聞標題: <input type="text" name="title" /></p>
 	  <p id="link_block">新聞連結1:<input type="text" name="link" />
 	  <span id="addLink_button" class="add" onclick="addLink(i++);" style="cursor:pointer;">+</span><br />
@@ -29,11 +29,11 @@
 	  <input type="checkbox" name="tag"/>解讀偏頗
 	  </p>
 	  <p id="relativeLink_block">
-	  打臉新聞:<input type="text" name="r1_title" /> 連結:<input type="text" name="r1_link" />
+	  打臉新聞:<input type="text" name="proveTitle" /> 連結:<input type="text" name="proveLink" />
 	  <span id="addRelativeLink_button" class="add" onclick="addRelativeLink(j++);" style="cursor:pointer;">+</span>
 	  <br />
 	  </p>
-	  <textarea rows="10" cols="85"></textarea><br />
+	  <textarea rows="10" cols="85" name="description"></textarea><br />
 	  <input type="submit" value="回報"/>
 	</form>
       </div>
