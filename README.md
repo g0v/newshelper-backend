@@ -6,6 +6,5 @@ newshelper-backend
 Dependencies
 ============
 
-- pip install Flask
-- pip install flask-mysql
+- pip install -r requirements.txt
 
