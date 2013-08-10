@@ -2,12 +2,16 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
-# from flaskext.mysql import MySQL
+from urlparse import urlparse
+import MySQLdb
+
+DATABASE_URL = "mysql://root@127.0.0.1/news"
 
 app = Flask(__name__)
 app.debug = True
-# mysql = MySQL()
-# mysql.init_app(app)
+
+db = MySQLdb.connect(host='127.0.0.1', user='root', db="news")
+cursor = db.cursor()
 
 @app.route("/")
 def hello():
@@ -30,14 +34,24 @@ def check_news():
     return jsonify(data)
   return '{"ok": true}', 404
 
-
 @app.route("/api/report_news", methods = ['POST'])
 def report_news():
   params = request.json
   title = params['title']
   newsLinks = params['newsLinks']
+  description = params['description']
 
-  print title, newsLinks
+  news_links = params['newsLinks']
+  prove_links = params['proveLinks']
+
+  cursor.execute("INSERT INTO news (title, description) VALUES (%s, %s);", (title, description))
+  news_id = db.insert_id()
+  db.commit()
+
+  for url in news_links:
+    sql = "INSERT INTO news_links (news_id, url) VALUES (%s, %s);"
+    cursor.execute(sql, (news_id, url))
+
   return '{"ok": true}'
 
 if __name__ == "__main__":

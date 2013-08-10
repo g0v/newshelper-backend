@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS news;
 
 CREATE TABLE news (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  title TEXT NOT NULL,
   description MEDIUMTEXT NOT NULL,
   created_at TIMESTAMP,
   updated_at TIMESTAMP
@@ -21,6 +22,7 @@ CREATE TABLE news_links (
 CREATE TABLE prove_links (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   news_id INT,
+  title TEXT NOT NULL,
   url TEXT NOT NULL,
   INDEX (news_id),
   FOREIGN KEY (news_id) REFERENCES news(id) ON DELETE CASCADE
