@@ -2,7 +2,7 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
-from flaskext.mysql import MySQL
+# from flaskext.mysql import MySQL
 
 app = Flask(__name__)
 app.debug = True
