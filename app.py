@@ -37,6 +37,24 @@ def check_news():
       ]
     }
     return jsonify(data)
+  elif (u"國防部" in title) or (u"國防部" in body):
+    data = {
+      "tags": ["解讀偏頗"],
+      "description": "實際有用的資訊傳遞",
+      "proveLinks": [
+        {"公民1985行動聯盟": "http://www.org.tw/"}
+      ]
+    }
+    return jsonify(data)
+  elif (u"狂犬病" in title) or (u"狂犬病" in body):
+    data = {
+      "tags": ["內容錯誤"],
+      "description": "實際有用的資訊傳遞",
+      "proveLinks": [
+        {"科學事實": "http://tw.news.yahoo.com/%E7%95%8F%E5%85%89-%E6%81%90%E6%B0%B4-%E6%94%BB%E6%93%8A-%E7%8B%82%E7%8A%AC%E7%97%85%E7%97%87%E7%8B%803%E6%9C%9F-111901271.html"}
+      ]
+    }
+    return jsonify(data)
 
   return '{"ok": true}', 404
 
