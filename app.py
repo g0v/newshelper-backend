@@ -103,14 +103,21 @@ def report_news():
 
 @app.route("/api/get_reports", methods = ['GET'])
 def get_reports():
-  return '{ \
-    "count": 3, \
-    "result": [ \
-        {"title": "xxxx", "link": "http://xxx"}, \
-        {"title": "xxxx", "link": "http://xxx"}, \
-        {"title": "xxxx", "link": "http://xxx"} \
-    ] \
-}'
+  cursor.execute("SELECT * FROM news_links WHERE ('timestamp' > DATE_SUB(now(), INTERVAL 3 DAY)")
+
+  gets = cursor.fetchall()
+  results = []
+  for row in gets:
+      results.append(
+          {"title": row[0], "link": row[1]}
+      )
+
+  data = {
+    "count": 3,
+    "result": results
+  }
+
+  return jsonify(data)
 
 if __name__ == "__main__":
   app.run()
