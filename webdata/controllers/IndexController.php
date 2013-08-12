@@ -19,11 +19,13 @@ class IndexController extends Pix_Controller
         if ($time >= $last_time) {
             return $this->json(array(
                 'status' => 0,
+                'time' => time(),
             ));
         }
 
         return $this->json(array(
             'status' => 1,
+            'time' => time(),
             'data' => array_values(Report::search("updated_at >= {$time}")->toArray()),
         ));
     }
