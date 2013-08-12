@@ -26,7 +26,10 @@ class IndexController extends Pix_Controller
         return $this->json(array(
             'status' => 1,
             'time' => time(),
-            'data' => array_values(Report::search("updated_at >= {$time}")->toArray()),
+            'data' => array_map(function($r){
+                $r['report_link'] = 'http://' . $_SERVER['HTTP_HOST'] . '/index/log/' . $r['id'];
+                return $r;
+            }, array_values(Report::search("updated_at >= {$time}")->toArray())),
         ));
     }
 
