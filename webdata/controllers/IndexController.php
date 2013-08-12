@@ -24,7 +24,7 @@ class IndexController extends Pix_Controller
 
         return $this->json(array(
             'status' => 1,
-            'data' => array_values(Report::search(1)->toArray()),
+            'data' => array_values(Report::search("updated_at >= {$time}")->toArray()),
         ));
     }
 
