@@ -11,7 +11,7 @@ class ReportChangeLog extends Pix_Table
         $this->_columns['report_id'] = array('type' => 'int');
         $this->_columns['updated_at'] = array('type' => 'int');
         $this->_columns['updated_from'] = array('type' => 'int', 'unsigned' => true);
-        $this->_columns['update_by'] = array('type' => 'varchar', 'size' => 255);
+        $this->_columns['updated_by'] = array('type' => 'varchar', 'size' => 255);
         $this->_columns['old_values'] = array('type' => 'text');
         $this->_columns['new_values'] = array('type' => 'text');
     }
