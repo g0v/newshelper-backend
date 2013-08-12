@@ -1,0 +1,39 @@
+<?= $this->partial('/common/header.phtml', $this) ?>
+<table class="table">
+    <thead>
+        <tr>
+            <td>新聞</td>
+            <td>打臉網址</td>
+            <td>打臉原因</td>
+            <td>功能</td>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach (Report::search(1) as $report) { ?>
+    <tr>
+        <td><a href="<?= $this->escape($report->news_link) ?>" target="_blank" rel="nofollow"><?= $this->escape($report->news_title) ?></a></td>
+        <td><a href="<?= $this->escape($report->report_link) ?>" target="_blank" rel="nofollow"><?= $this->escape($report->report_link) ?></a></td>
+        <td><?= $this->escape($report->report_title) ?></td>
+        <td>
+            <a href="/index/edit/<?= $report->id ?>#name">修改</a>
+            <a href="/index/log/<?= $report->id ?>">記錄</a>
+        </td>
+    </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<hr>
+<?php if ($this->report) { ?>
+<a name="edit"></a><h3>修改項目: <?= $this->report->id ?></h3>
+<?php } else { ?>
+<h3>新增新的項目</h3>
+<?php } ?>
+<form method="post" action="<?= $this->report ? "/index/edit/{$this->report->id}" : '/index/add' ?>">
+    <input type="hidden" name="sToken" value="<?= Helper::getStoken() ?>">
+    新聞連結: <input type="text" name="news_link" value="<?= $this->escape($this->report->news_link) ?>"><br>
+    新聞標題: <input type="text" name="news_title" value="<?= $this->escape($this->report->news_title) ?>"><br>
+    打臉網址: <input type="text" name="report_link" value="<?= $this->escape($this->report->report_link) ?>"><br>
+    打臉簡介: <input type="text" name="report_title" value="<?= $this->escape($this->report->report_title) ?>"><br>
+    <button type="submit">送出</button>
+</form>
+<?= $this->partial('/common/footer.phtml', $this) ?>

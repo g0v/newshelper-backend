@@ -1,0 +1,22 @@
+<?= $this->partial('/common/header.phtml', $this) ?>
+<table class="table">
+    <thead>
+        <tr>
+            <td>時間</td>
+            <td>修改人</td>
+            <td>舊值</td>
+            <td>新值</td>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach (ReportChangeLog::search(array('report_id' => $this->report->id)) as $change_log) { ?>
+    <tr>
+        <td><?= date('c', $change_log->updated_at) ?></td>
+        <td><?= $this->escape($change_log->updated_by) ?></td>
+        <td><?= $this->partial('index/log_show.phtml', array('value' => $change_log->old_values)) ?></td>
+        <td><?= $this->partial('index/log_show.phtml', array('value' => $change_log->new_values)) ?></td>
+    </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<?= $this->partial('/common/footer.phtml', $this) ?>

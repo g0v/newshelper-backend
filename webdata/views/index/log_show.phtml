@@ -1,0 +1,5 @@
+<ul>
+    <?php foreach (json_decode($this->value) as $k => $v) { ?>
+    <li><?= $this->escape($k) ?>: <?= $this->escape($v) ?></li>
+    <?php } ?>
+</ul>
