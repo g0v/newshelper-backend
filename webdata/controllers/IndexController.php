@@ -88,14 +88,18 @@ class IndexController extends Pix_Controller
             return $this->alert('sToken 錯誤', '/');
         }
 
-        $report = Report::insert(array(
-            'news_title' => strval($_POST['news_title']),
-            'news_link' => strval($_POST['news_link']),
-            'report_title' => strval($_POST['report_title']),
-            'report_link' => strval($_POST['report_link']),
-            'created_at' => time(),
-            'updated_at' => time(),
-        ));
+        try {
+            $report = Report::insert(array(
+                'news_title' => strval($_POST['news_title']),
+                'news_link' => strval($_POST['news_link']),
+                'report_title' => strval($_POST['report_title']),
+                'report_link' => strval($_POST['report_link']),
+                'created_at' => time(),
+                'updated_at' => time(),
+            ));
+        } catch (Pix_Table_DuplicateException $e) {
+            return $this->alert('您回報的連結' . strval($_POST['news_link']) . ' 已經有人回報了', '/');
+        }
 
         ReportChangeLog::insert(array(
             'report_id' => $report->id,
