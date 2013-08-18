@@ -26,8 +26,8 @@ $this->title = $this->report->news_title . '：回報新聞錯誤：';
             <?= $this->escape($change_log->updated_by) ?>
             IP: <?= long2ip($change_log->updated_from) ?>
         </td>
-        <td><?= $this->partial('index/log_show.phtml', array('value' => $change_log->old_values)) ?></td>
-        <td><?= $this->partial('index/log_show.phtml', array('value' => $change_log->new_values)) ?></td>
+        <td><?= $this->partial('index/log_show.phtml', array('value' => $change_log->getOldDiffValues())) ?></td>
+        <td><?= $this->partial('index/log_show.phtml', array('value' => $change_log->getNewDiffValues())) ?></td>
     </tr>
     <?php } ?>
     </tbody>
