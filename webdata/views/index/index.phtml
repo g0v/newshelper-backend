@@ -3,6 +3,7 @@
 <table class="table">
     <thead>
         <tr>
+            <td>修改時間</td>
             <td>新聞</td>
             <td>打臉網址</td>
             <td>打臉原因</td>
@@ -12,6 +13,9 @@
     <tbody>
     <?php foreach (Report::search(1)->order('updated_at DESC') as $report) { ?>
     <tr class="<?= $report->deleted_at ? ' deleted' : '' ?>">
+        <td>
+            <?= $this->partial('/helper/counttime.phtml', array('time' => $report->updated_at)) ?>
+        </td>
         <td>
             <a href="<?= $this->escape($report->news_link) ?>" target="_blank" rel="nofollow"><?= $this->escape($report->news_title) ?></a>
         </td>
