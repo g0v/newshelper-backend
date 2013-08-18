@@ -14,7 +14,7 @@ class IndexController extends Pix_Controller
     public function dataAction()
     {
         $time = intval($_GET['time']);
-        $last_time = ReportChangeLog::search(1)->max('id')->updated_at;
+        $last_time = Report::search(1)->max('updated_at')->updated_at;
 
         if ($time >= $last_time) {
             return $this->json(array(
