@@ -1,4 +1,5 @@
 <?= $this->partial('/common/header.phtml', $this) ?>
+<button type="button" class="btn btn-primary" data-toggle="button" id="toggle-show-deleted">顯示已被刪除回報</button>
 <table class="table">
     <thead>
         <tr>
@@ -9,11 +10,20 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach (Report::search(1) as $report) { ?>
-    <tr>
-        <td><a href="<?= $this->escape($report->news_link) ?>" target="_blank" rel="nofollow"><?= $this->escape($report->news_title) ?></a></td>
+    <?php foreach (Report::search(1)->order('updated_at DESC') as $report) { ?>
+    <tr class="<?= $report->deleted_at ? ' deleted' : '' ?>">
+        <td>
+            <a href="<?= $this->escape($report->news_link) ?>" target="_blank" rel="nofollow"><?= $this->escape($report->news_title) ?></a>
+        </td>
         <td><a href="<?= $this->escape($report->report_link) ?>" target="_blank" rel="nofollow"><?= $this->escape($report->report_link) ?></a></td>
-        <td><?= $this->escape($report->report_title) ?></td>
+        <td>
+            <?php if ($report->deleted_at) { ?>
+            <span class="label label-warning">
+                已於 <?= $this->partial('/helper/counttime.phtml', arraY('time' => $report->deleted_at)) ?> 被刪除: <?= $this->escape($report->getDeleteReason()) ?>
+            </span>
+            <?php } ?>
+            <?= $this->escape($report->report_title) ?>
+        </td>
         <td>
             <a href="/index/edit/<?= $report->id ?>#name">修改</a>
             <a href="/index/log/<?= $report->id ?>">記錄</a>
@@ -39,4 +49,14 @@
     <?php } ?>
     <button type="submit">送出</button>
 </form>
+<script>
+$('tr.deleted').hide();
+$('#toggle-show-deleted').click(function(){
+    if ($(this).is('.active')) {
+        $('tr.deleted').hide();
+    } else {
+        $('tr.deleted').show();
+    }
+});
+</script>
 <?= $this->partial('/common/footer.phtml', $this) ?>
