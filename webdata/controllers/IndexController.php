@@ -61,6 +61,12 @@ class IndexController extends Pix_Controller
                 }
             }
 
+            try {
+                $this->_checkReportData($_POST);
+            } catch (Exception $e) {
+                return $this->alert($e->getMessage(), '/');
+            }
+
             $old_values = $report->toArray();
             $report->update(array(
                 'news_title' => strval($_POST['news_title']),
@@ -98,6 +104,12 @@ class IndexController extends Pix_Controller
             return $this->alert('sToken 錯誤', '/');
         }
 
+        try {
+            $this->_checkReportData($_POST);
+        } catch (Exception $e) {
+            return $this->alert($e->getMessage(), '/');
+        }
+
         $report = Report::insert(array(
             'news_title' => strval($_POST['news_title']),
             'news_link' => strval($_POST['news_link']),
@@ -117,5 +129,21 @@ class IndexController extends Pix_Controller
         ));
 
         return $this->alert('新增成功', '/');
+    }
+
+    protected function _checkReportData($data)
+    {
+        if (!$data['news_title']) {
+            throw new Exception("未輸入新聞標題");
+        }
+        if (!$data['news_link'] or !filter_var($data['news_link'], FILTER_VALIDATE_URL)) {
+            throw new Exception("請輸入合法新聞網址");
+        }
+        if (!$data['report_title']) {
+            throw new Exception("未輸入打臉簡介");
+        }
+        if (!$data['report_link'] or !filter_var($data['report_link'], FILTER_VALIDATE_URL)) {
+            throw new Exception("請輸入合法打臉網址");
+        }
     }
 }
