@@ -34,6 +34,9 @@
     新聞標題: <input type="text" name="news_title" value="<?= $this->escape($this->report->news_title) ?>"><br>
     打臉網址: <input type="text" name="report_link" value="<?= $this->escape($this->report->report_link) ?>"><br>
     打臉簡介: <input type="text" name="report_title" value="<?= $this->escape($this->report->report_title) ?>"><br>
+    <?php if ($this->report) { ?>
+    <label><input type="checkbox" name="delete" value="1" <?= $this->report->deleted_at ? ' checked="checked"' : '' ?>> 刪除: <input type="text" name="deleted_reason" placeholder="請輸入刪除原因" value="<?= $this->escape($this->report->getDeleteReason()) ?>"></label>
+    <?php } ?>
     <button type="submit">送出</button>
 </form>
 <?= $this->partial('/common/footer.phtml', $this) ?>

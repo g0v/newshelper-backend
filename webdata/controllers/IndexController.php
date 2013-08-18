@@ -55,6 +55,12 @@ class IndexController extends Pix_Controller
                 return $this->alert('sToken 錯誤', '/');
             }
 
+            if ($_POST['delete']) {
+                if (!strval($_POST['deleted_reason'])) {
+                    return $this->alert('請輸入刪除原因', '/index/edit/' . $report->id);
+                }
+            }
+
             $old_values = $report->toArray();
             $report->update(array(
                 'news_title' => strval($_POST['news_title']),
@@ -62,8 +68,12 @@ class IndexController extends Pix_Controller
                 'report_title' => strval($_POST['report_title']),
                 'report_link' => strval($_POST['report_link']),
                 'updated_at' => time(),
+                'deleted_at' => intval($_POST['delete']) ? time() : 0,
             ));
             $new_values = $report->toArray();
+            if ($_POST['delete']) {
+                $new_values['deleted_reason'] = strval($_POST['deleted_reason']);
+            }
 
             if ($new_values != $old_values) {
                 ReportChangeLog::insert(array(
