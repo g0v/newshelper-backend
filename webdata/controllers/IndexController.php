@@ -23,6 +23,7 @@ class IndexController extends Pix_Controller
                 'status' => 0,
                 'time' => $now,
                 'next_url' => 'http://' . $_SERVER['HTTP_HOST'] . '/index/data?time=' . $now,
+                'data' => array(),
             ));
         }
 
