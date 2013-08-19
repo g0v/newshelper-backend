@@ -16,17 +16,20 @@ class IndexController extends Pix_Controller
     {
         $time = intval($_GET['time']);
         $last_time = Report::search(1)->max('updated_at')->updated_at;
+        $now = time();
 
         if ($time >= $last_time) {
             return $this->json(array(
                 'status' => 0,
-                'time' => time(),
+                'time' => $now,
+                'next_url' => 'http://' . $_SERVER['HTTP_HOST'] . '/index/data?time=' . $now,
             ));
         }
 
         return $this->json(array(
             'status' => 1,
             'time' => time(),
+            'next_url' => 'http://' . $_SERVER['HTTP_HOST'] . '/index/data?time=' . $now,
             'data' => array_map(function($r){
                 $r['report_link'] = 'http://' . $_SERVER['HTTP_HOST'] . '/index/log/' . $r['id'];
                 return $r;
