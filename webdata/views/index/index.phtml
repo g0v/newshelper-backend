@@ -34,7 +34,8 @@
             <?= $this->partial('/helper/counttime.phtml', array('time' => $report->updated_at)) ?>
         </td>
         <td>
-            <a href="<?= $this->escape($report->news_link) ?>" target="_blank" rel="nofollow"><?= $this->escape($report->news_title) ?></a>
+            <a href="<?= $this->escape($report->news_link) ?>" target="_blank" rel="nofollow"><?= $this->escape($report->news_title) ?></a><br>
+            <?= $this->escape(parse_url($report->news_link, PHP_URL_HOST)) ?>
         </td>
         <td><a href="<?= $this->escape($report->report_link) ?>" title="<?= $this->escape($report->report_link) ?>" target="_blank" rel="nofollow"><?= $this->escape(parse_url($report->report_link, PHP_URL_HOST)) ?></a></td>
         <td>
