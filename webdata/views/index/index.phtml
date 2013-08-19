@@ -1,4 +1,21 @@
 <?= $this->partial('/common/header.phtml', $this) ?>
+<?php if ($this->report) { ?>
+<a name="edit"></a><h3>修改項目: <?= $this->report->id ?></h3>
+<?php } else { ?>
+<h3>新增新的項目</h3>
+<?php } ?>
+<form method="post" action="<?= $this->report ? "/index/edit/{$this->report->id}" : '/index/add' ?>">
+    <input type="hidden" name="sToken" value="<?= Helper::getStoken() ?>">
+    新聞連結: <input type="text" name="news_link" value="<?= $this->escape($this->report->news_link ?: $this->data['news_link']) ?>" class="input-xxlarge"><br>
+    新聞標題: <input type="text" name="news_title" value="<?= $this->escape($this->report->news_title ?: $this->data['news_title'] ) ?>" class="input-xxlarge"><br>
+    打臉網址: <input type="text" name="report_link" value="<?= $this->escape($this->report->report_link) ?>" class="input-xxlarge"><br>
+    打臉簡介: <input type="text" name="report_title" value="<?= $this->escape($this->report->report_title) ?>" class="input-xxlarge"><br>
+    <?php if ($this->report) { ?>
+    <label><input type="checkbox" name="delete" value="1" <?= $this->report->deleted_at ? ' checked="checked"' : '' ?>> 刪除: <input type="text" name="deleted_reason" placeholder="請輸入刪除原因" value="<?= $this->escape($this->report->getDeleteReason()) ?>" class="input-xxlarge"></label>
+    <?php } ?>
+    <button type="submit">送出</button>
+</form>
+<hr>
 <button type="button" class="btn btn-primary" data-toggle="button" id="toggle-show-deleted">顯示已被刪除回報</button>
 <table class="table">
     <thead>
@@ -36,23 +53,6 @@
     <?php } ?>
     </tbody>
 </table>
-<hr>
-<?php if ($this->report) { ?>
-<a name="edit"></a><h3>修改項目: <?= $this->report->id ?></h3>
-<?php } else { ?>
-<h3>新增新的項目</h3>
-<?php } ?>
-<form method="post" action="<?= $this->report ? "/index/edit/{$this->report->id}" : '/index/add' ?>">
-    <input type="hidden" name="sToken" value="<?= Helper::getStoken() ?>">
-    新聞連結: <input type="text" name="news_link" value="<?= $this->escape($this->report->news_link ?: $this->data['news_link']) ?>" class="input-xxlarge"><br>
-    新聞標題: <input type="text" name="news_title" value="<?= $this->escape($this->report->news_title ?: $this->data['news_title'] ) ?>" class="input-xxlarge"><br>
-    打臉網址: <input type="text" name="report_link" value="<?= $this->escape($this->report->report_link) ?>" class="input-xxlarge"><br>
-    打臉簡介: <input type="text" name="report_title" value="<?= $this->escape($this->report->report_title) ?>" class="input-xxlarge"><br>
-    <?php if ($this->report) { ?>
-    <label><input type="checkbox" name="delete" value="1" <?= $this->report->deleted_at ? ' checked="checked"' : '' ?>> 刪除: <input type="text" name="deleted_reason" placeholder="請輸入刪除原因" value="<?= $this->escape($this->report->getDeleteReason()) ?>" class="input-xxlarge"></label>
-    <?php } ?>
-    <button type="submit">送出</button>
-</form>
 <script>
 $('tr.deleted').hide();
 $('#toggle-show-deleted').click(function(){
