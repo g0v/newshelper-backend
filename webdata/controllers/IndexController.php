@@ -9,6 +9,7 @@ class IndexController extends Pix_Controller
 
     public function indexAction()
     {
+        $this->view->data = $_GET;
     }
 
     public function dataAction()
