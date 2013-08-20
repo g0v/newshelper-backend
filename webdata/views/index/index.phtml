@@ -14,6 +14,9 @@
     <label><input type="checkbox" name="delete" value="1" <?= $this->report->deleted_at ? ' checked="checked"' : '' ?>> 刪除: <input type="text" name="deleted_reason" placeholder="請輸入刪除原因" value="<?= $this->escape($this->report->getDeleteReason()) ?>" class="input-xxlarge"></label>
     <?php } ?>
     <button type="submit">送出</button>
+    <p class="text-warning">
+        現階段僅針對明顯的客觀錯誤。針對觀點討論外掛的功能，我們還在規劃中，歡迎到 <a href="https://www.facebook.com/pages/%E6%96%B0%E8%81%9E%E5%B0%8F%E5%B9%AB%E6%89%8B/317618105050858" target="_blank">FB粉絲專頁</a> <a href="http://groups.google.com/group/g0v-newshelper" target="_blank">Google網上論壇</a>  提供意見
+    </p>
 </form>
 <hr>
 <button type="button" class="btn btn-primary" data-toggle="button" id="toggle-show-deleted">顯示已被刪除回報</button>
