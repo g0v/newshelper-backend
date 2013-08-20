@@ -21,7 +21,7 @@ class ReportChangeLogRow extends Pix_Table_Row
         $new_values = json_decode($this->new_values);
         $ret = new StdClass;
         foreach ($new_values as $k => $v) {
-            if (!property_exists($old_values, $k) or $new_values->{$k} !== $old_values->{$k}) {
+            if (!$old_values or !property_exists($old_values, $k) or $new_values->{$k} !== $old_values->{$k}) {
                 $ret->{$k} = $v;
             }
         }
