@@ -150,5 +150,8 @@ class IndexController extends Pix_Controller
         if (!$data['report_link'] or !filter_var($data['report_link'], FILTER_VALIDATE_URL)) {
             throw new Exception("請輸入合法打臉網址");
         }
+        if ($data['report_link'] == $data['news_link']) {
+            throw new Exception("打臉連結不能與新聞連結相同，打臉連結請提供有提出指正該新聞錯誤證據的消息來源");
+        }
     }
 }
