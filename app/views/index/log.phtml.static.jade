@@ -5,6 +5,7 @@
     | 修改回報內容
     i.icon-quote-right
   form.form-horizontal(role="form", method="POST", action!='<?= "/index/edit/{$this->report->id}" ?>')
+    input(type="hidden", name="sToken", value!="<?= Helper::getStoken() ?>")
     .form-group
       label.control-label(for="news_link") 新聞連結
       .input-group.input-group-lg
