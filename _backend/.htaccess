@@ -1,4 +1,7 @@
 RewriteEngine on
 RewriteBase /
-RewriteRule static/ - [L]
+RewriteRule css/ - [L]
+RewriteRule images/ - [L]
+RewriteRule js/ - [L]
+RewriteRule fonts/ - [L]
 RewriteRule .* index.php
