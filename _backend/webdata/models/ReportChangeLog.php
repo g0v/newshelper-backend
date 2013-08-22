@@ -46,5 +46,7 @@ class ReportChangeLog extends Pix_Table
         $this->_columns['updated_by'] = array('type' => 'varchar', 'size' => 255);
         $this->_columns['old_values'] = array('type' => 'text');
         $this->_columns['new_values'] = array('type' => 'text');
+
+        $this->_relations['updater'] = array('rel' => 'has_one', 'type' => 'User', 'foreign_key' => 'updated_by');
     }
 }
