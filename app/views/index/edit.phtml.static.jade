@@ -56,7 +56,7 @@
         th.old-val 舊值
         th.new-val 新值
     tbody
-      <?php foreach (Report::search(1)->order('updated_at DESC') as $report) { ?>
+      <?php foreach (ReportChangeLog::search(1)->order('updated_at DESC') as $change_log) { ?>
       tr.news
         td.timestamp <?= date('c', $change_log->updated_at) ?>
         td.editor <?= $this->escape($change_log->updated_by) ?> IP: <?= long2ip($change_log->updated_from) ?>
