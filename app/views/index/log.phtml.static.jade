@@ -60,7 +60,7 @@
       <?php foreach (ReportChangeLog::search(array('report_id' => $this->report->id))->order('updated_at DESC') as $change_log) { ?>
       tr.news
         td.timestamp <?= date('c', $change_log->updated_at) ?>
-        td.editor <?= $this->escape($change_log->updated_by) ?> IP: <?= long2ip($change_log->updated_from) ?>
+        td.editor <?= $this->escape($change_log->updater ? $change_log->updater->getUserName($this->is_login) : '') ?> IP: <?= long2ip($change_log->updated_from) ?>
         td.old-val <?= $this->partial('index/log_show.phtml', array('value' => $change_log->getOldDiffValues())) ?>
         td.new-val <?= $this->partial('index/log_show.phtml', array('value' => $change_log->getNewDiffValues())) ?>
       <?php } ?>
