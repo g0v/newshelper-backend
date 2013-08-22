@@ -45,6 +45,7 @@ class IndexController extends Pix_Controller
             return $this->alert('找不到', '/');
         }
         $this->view->report = $report;
+        $this->view->is_login = $this->view->user ? true : false;
     }
 
     public function editAction()
