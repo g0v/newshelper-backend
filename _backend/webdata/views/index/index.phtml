@@ -1,0 +1,70 @@
+<?= $this->partial('/common/header.phtml', $this) ?>
+<?php if ($this->report) { ?>
+<a name="edit"></a><h3>修改項目: <?= $this->report->id ?></h3>
+<?php } else { ?>
+<h3>新增新的項目</h3>
+<?php } ?>
+<form method="post" action="<?= $this->report ? "/index/edit/{$this->report->id}" : '/index/add' ?>">
+    <input type="hidden" name="sToken" value="<?= Helper::getStoken() ?>">
+    新聞連結: <input type="text" name="news_link" value="<?= $this->escape($this->report->news_link ?: $this->data['news_link']) ?>" class="input-xxlarge"><br>
+    新聞標題: <input type="text" name="news_title" value="<?= $this->escape($this->report->news_title ?: $this->data['news_title'] ) ?>" class="input-xxlarge"><br>
+    打臉網址: <input type="text" name="report_link" value="<?= $this->escape($this->report->report_link) ?>" class="input-xxlarge"><br>
+    打臉簡介: <input type="text" name="report_title" value="<?= $this->escape($this->report->report_title) ?>" class="input-xxlarge"><br>
+    <?php if ($this->report) { ?>
+    <label><input type="checkbox" name="delete" value="1" <?= $this->report->deleted_at ? ' checked="checked"' : '' ?>> 刪除: <input type="text" name="deleted_reason" placeholder="請輸入刪除原因" value="<?= $this->escape($this->report->getDeleteReason()) ?>" class="input-xxlarge"></label>
+    <?php } ?>
+    <button type="submit">送出</button>
+    <p class="text-warning">
+        現階段僅針對明顯的客觀錯誤。針對觀點討論外掛的功能，我們還在規劃中，歡迎到 <a href="https://www.facebook.com/pages/%E6%96%B0%E8%81%9E%E5%B0%8F%E5%B9%AB%E6%89%8B/317618105050858" target="_blank">FB粉絲專頁</a> <a href="http://groups.google.com/group/g0v-newshelper" target="_blank">Google網上論壇</a>  提供意見
+    </p>
+</form>
+<hr>
+<button type="button" class="btn btn-primary" data-toggle="button" id="toggle-show-deleted">顯示已被刪除回報</button>
+<table class="table">
+    <thead>
+        <tr>
+            <td>修改時間</td>
+            <td>新聞</td>
+            <td>打臉網址</td>
+            <td>打臉原因</td>
+            <td>功能</td>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach (Report::search(1)->order('updated_at DESC') as $report) { ?>
+    <tr class="<?= $report->deleted_at ? ' deleted' : '' ?>">
+        <td>
+            <?= $this->partial('/helper/counttime.phtml', array('time' => $report->updated_at)) ?>
+        </td>
+        <td>
+            <a href="<?= $this->escape($report->news_link) ?>" target="_blank" rel="nofollow"><?= $this->escape($report->news_title) ?></a><br>
+            <?= $this->escape(parse_url($report->news_link, PHP_URL_HOST)) ?>
+        </td>
+        <td><a href="<?= $this->escape($report->report_link) ?>" title="<?= $this->escape($report->report_link) ?>" target="_blank" rel="nofollow"><?= $this->escape(parse_url($report->report_link, PHP_URL_HOST)) ?></a></td>
+        <td>
+            <?php if ($report->deleted_at) { ?>
+            <span class="label label-warning">
+                已於 <?= $this->partial('/helper/counttime.phtml', arraY('time' => $report->deleted_at)) ?> 被刪除: <?= $this->escape($report->getDeleteReason()) ?>
+            </span>
+            <?php } ?>
+            <?= $this->escape($report->report_title) ?>
+        </td>
+        <td>
+            [<a href="/index/edit/<?= $report->id ?>#edit">修改</a>]
+            [<a href="/index/log/<?= $report->id ?>">記錄</a>]
+        </td>
+    </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<script>
+$('tr.deleted').hide();
+$('#toggle-show-deleted').click(function(){
+    if ($(this).is('.active')) {
+        $('tr.deleted').hide();
+    } else {
+        $('tr.deleted').show();
+    }
+});
+</script>
+<?= $this->partial('/common/footer.phtml', $this) ?>

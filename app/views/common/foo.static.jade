@@ -1,0 +1,195 @@
+!!! 5
+html(lang="zh")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="author", content="Shao-Chung Chen")
+    meta(name="description", content="「新聞小幫手」瀏覽器擴充套件，隨時偵測問題新聞以守護您的網路閱聽品質")
+    title 新聞小幫手
+    link(rel="stylesheet", href="css/app.css")
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+    script(src="js/vendor.js")
+    script(src="https://apis.google.com/js/plusone.js")
+  body
+    a(href="https://github.com/g0v/newshelper-extension")
+      img(style="position: absolute; top: 0; right: 0; border: 0;", src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png", alt="Fork me on GitHub")
+    header.navbar.navbar-default(role="banner")
+      .container
+        .navbar-header
+          a.navbar-brand(href="#")
+            span.g0v
+              img(src="images/g0v-icon-invert.png")
+            span.site-title 新聞小幫手
+        nav(role="navigation")
+          ul.nav.navbar-nav.pull-right
+            li
+              a(href="#features")
+                i.icon-zoom-in
+                | 功能總覽
+            li
+              a(href="https://github.com/g0v/newshelper-extension/wiki/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%96%B0%E8%81%9E%E5%B0%8F%E5%B9%AB%E6%89%8B", target="_blank")
+                i.icon-info-sign
+                | 使用說明
+            li
+              a(href="#report")
+                i.icon-plus
+                | 我要回報新聞
+            li
+              a(href="#reported")
+                i.icon-windows
+                | 已回報新聞
+            li
+              a(href="http://g0v.tw", target="_blank")
+                i.icon-link
+                | 關於零時政府
+
+    main(role="main")
+      .container.masthead
+        .left
+          h1
+            | 新聞<b>小幫手</b>
+          p.lead 揪出問題新聞、守護您的網路閱聽品質
+          .report-news
+            a.btn.btn-lg.btn-danger.btn-report(href="#report")
+              i.icon-plus
+              | 我也想盡一份心，立刻<b>回報問題新聞</b>
+              | ！
+            .description
+              i.icon-comments
+              | 問題新聞 — 具有明顯的客觀錯誤，例如：<b>沒有任何科學根據佐證</b>的報導
+          .downloads
+            .description
+              i.icon-ok
+              | 下載瀏覽器擴充套件，現在就把小幫手帶回家
+            div.download-btns
+              a.btn.btn-info(href="https://chrome.google.com/webstore/detail/%E6%96%B0%E8%81%9E%E5%B0%8F%E5%B9%AB%E6%89%8B/hkenpfplphndcndhhhldecaammpmopoc")
+                i.icon-cloud-download
+                | Chrome 點我
+              a.btn.btn-info(href="https://addons.mozilla.org/zh-TW/firefox/addon/newshelper-firefox/")
+                i.icon-cloud-download
+                | Firefox 點我
+              a.btn.btn-info(href="https://github.com/yllan/newshelper-safari")
+                i.icon-cloud-download
+                | Safari 點我
+          .socials
+            .g-plusone(data-size="medium")
+            iframe(src="//ghbtns.com/github-btn.html?user=g0v&repo=newshelper-extension&type=watch&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="110", height="20")
+            iframe(src="//ghbtns.com/github-btn.html?user=g0v&repo=newshelper-extension&type=fork&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="95", height="20")
+            iframe(src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fnewshelper&amp;width=450&amp;height=80&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;send=true", scrolling="no", frameborder="0", style="border:none;overflow:hidden;width:450px;height:80px;", allowTransparency="true")
+      .container.features#features
+        h1
+          i.icon-quote-left
+          | 功能總覽
+          i.icon-quote-right
+        .feature
+          img(src="images/facebook-warning.png")
+          .title
+            i.icon-zoom-in
+            | 即時監測問題新聞
+          .description
+            | 瀏覽 Facebook 等各大網站時，由本地資料庫資訊在瀏覽器內即時檢查新聞是否曾被回報，<b>不會傳回任何瀏覽記錄，兼顧隱私與網路閱聽品質</b>。
+        .feature
+          img(src="images/facebook-button.png")
+          .title
+            i.icon-thumbs-up-alt
+            | 整合式回報按鈕
+          .description
+            | 在 Facebook 介面完美整合回報按鈕，簡單一個步驟即可回報問題新聞，您隨時也能為守護網路閱聽品質盡一份心力！
+        .feature
+          img(src="images/notifications.png")
+          .title
+            i.icon-refresh
+            | 背景提醒訊息
+          .description
+            | 新聞小幫手會默默地在背景更新本地資料，若發現您曾經讀過的新聞被加入回報資訊，將彈出訊息提醒，滴水不漏地守護您。
+        div(style="clear: both;")
+        .introduction
+          blockquote 在媒體亂象日趨嚴重當下，「新聞小幫手」藉助科技與群眾的力量，提供一個平台讓每個人回報有問題的新聞，並且透過瀏覽器擴充套件即時監控每一個網頁，當發現您正在瀏覽可能有問題的媒體資訊時，「新聞小幫手」會適時提醒您要抱持懷疑的態度來審視網路上的訊息，期盼結合每個人的貢獻，共同提升網路閱聽品質。
+          blockquote.footnote「新聞小幫手」所有檢測都在您的電腦裡完成，不會傳送任何瀏覽記錄，無需擔心任何上網隱私外洩。<br/>所有擴充套件皆為完全開放原始碼的專案，若有任何疑慮可以閱讀原始碼以求證安全性。
+
+      .container.report-form#report
+        h1
+          i.icon-quote-left
+          | 我要回報新聞
+          i.icon-quote-right
+        form.form-horizontal(role="form", method="POST", action="#")
+          .form-group
+            label.control-label(for="news_link") 請貼上新聞連結
+            .input-group.input-group-lg
+              span.input-group-addon
+                i.icon-link
+              input.form-control.input-lg(type="url", name="news_link", placeholder="http://", required)
+          .form-group
+            label.control-label(for="news_title")
+              | 請填寫新聞標題
+            .input-group.input-group-lg
+              span.input-group-addon
+                i.icon-list-ul
+              input.form-control.input-lg(name="news_title", placeholder="新聞標題", required)
+          .form-group
+            label.control-label(for="report_title") 您覺得這則新聞有什麼問題？
+            .input-group.input-group-lg
+              span.input-group-addon
+                i.icon-warning-sign
+              input.form-control.input-lg(name="report_title", placeholder="問題重點", required)
+          .form-group
+            label.control-label(for="report_link") 如果有人寫出真相，請貼上連結（選填）
+            .input-group.input-group-lg
+              span.input-group-addon
+                i.icon-quote-left
+              input.form-control.input-lg(type="url", name="report_link", placeholder="http://")
+          .form-group.submit-btn
+            button.btn.btn-default(type="submit", value="確定回報", style="display: none")
+            a.btn.btn-info.btn-lg.btn-block(onclick="submit();")
+              i.icon-ok
+              | 我都填好了，確定回報！
+
+      .container.main#reported
+        h1
+          i.icon-quote-left
+          | 已回報新聞
+          i.icon-quote-right
+        table.table
+          thead
+            tr.news
+              th.update-at 最後更新
+              th.news-title 新聞
+              th.problem 問題點
+              th.link 真相
+              th.manage 管理
+          tbody
+            tr.news
+              td.update-at 12分鐘前
+              td.news-title
+                .link
+                  a(href="http://www.appledaily.com.tw/realtimenews/article/new/20130820/245819/") 索尼特設「無聊辦公室」讓員工太無聊逼離職 | 即時新聞 | 20130820 | 蘋果日報
+                .host
+                  i.icon-bolt
+                  | www.appledaily.com.tw
+              td.problem
+                | 這新聞應該是源自於紐約時報,其他新聞來源引用卻沒來源
+              td.reflink
+                a.btn.btn-primary.btn-xs(href="http://cn.nytimes.com/business/20130820/c20japan/zh-hant/")
+                  | 連結
+                  i.icon-signin
+              td.manage
+                p
+                  a.btn.btn-success.btn-xs(href="#")
+                    | 詳情
+                    i.icon-zoom-in
+                p
+                  a.btn.btn-warning.btn-xs(href="#")
+                    | 修改
+                    i.icon-wrench
+
+    footer.container
+      p.copyright
+        i.icon-star
+        a(href="http://hack.g0v.tw/project/newshelper") 新聞小幫手計劃
+        | &nbsp; · 民國 102 年&nbsp;
+        a(href="http://g0v.tw") g0v 台灣零時政府
+        | &nbsp;熱血出品 · 開放原始碼授權請參閱各專案內容 · 感謝各界貢獻
+
+    script $(function(){for(var i=0;i<10;i++)$("tbody").append($(".news")[1].outerHTML)});

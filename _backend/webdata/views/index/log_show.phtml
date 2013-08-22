@@ -1,0 +1,24 @@
+<?php
+$column_map = array(
+    'updated_at' => '修改時間',
+    'report_link' => '打臉連結',
+    'report_title' => '打臉說明',
+    'news_link' => '新聞連結',
+    'news_title' => '新聞標題',
+    'deleted_at' => '刪除時間',
+    'created_at' => '建立時間',
+    'deleted_reason' => '刪除原因',
+);
+?>
+<dl class="dl-horizontal">
+    <?php foreach ($this->value as $k => $v) { ?>
+    <dt><?= $this->escape(array_key_exists($k, $column_map) ? $column_map[$k] : $k) ?></dt>
+    <dd>
+    <?php if (in_array($k, array('created_at', 'updated_at', 'deleted_at'))) { ?>
+    <?= $this->partial('/helper/counttime.phtml', array('time' => $v)) ?>
+    <?php } else { ?>
+    <?= $this->escape($v) ?>
+    <?php } ?>
+    </dd>
+    <?php } ?>
+</dl>

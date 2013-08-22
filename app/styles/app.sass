@@ -1,0 +1,292 @@
+@import "compass"
+@import "compass/css3/filter"
+
+*
+  // box-shadow: hsl(0, 0%, 60%) 0px 0px 1px inset
+
+body
+  background: hsl(0, 0%, 85%) url(../images/textured_paper.png)
+  font-family: 'Helvetica Nune', Helvetica, Arial, sans-serif
+
+h1
+  font-size: 32px
+  color: hsl(0, 0%, 35%)
+  text-align: center
+  margin-bottom: 20px
+  i[class^=icon]
+    color: hsl(0, 0%, 76%)
+    &:first-child
+      margin-right: 6px
+      vertical-align: 3px
+    &:last-child
+      margin-left: 6px
+      vertical-align: -3px
+
+.container
+  width: 970px !important
+  min-width: 970px !important
+
+.navbar-default
+  background-color: transparent !important
+  border: 0 !important
+  margin-top: 40px
+  .navbar-brand
+    .g0v
+      background: hsl(0, 50%, 50%)
+      padding: 2px 4px 4px 4px
+      margin-right: 5px
+      vertical-align: 2px
+      @include border-radius(3px)
+      img
+        width: 42px
+        height: 21px
+    .site-title
+      color: hsl(0, 50%, 50%)
+      font-size: 22px
+      font-weight: bold
+      letter-spacing: 1px
+      text-shadow: hsl(0, 0%, 100%) 0px 1px 0px
+  nav
+    a
+      color: hsl(200, 60%, 35%) !important
+      text-shadow: hsl(0, 0%, 100%) 0px 1px 0px
+      font-size: 15px
+      font-weight: bold
+      &:hover
+        color: hsl(200, 50%, 30%) !important
+      i[class^=icon-]
+        color: hsl(200, 60%, 40%) !important
+        font-size: 17px
+        margin-right: 4px
+        vertical-align: -1px
+
+footer
+  margin-top: 30px
+  padding-bottom: 60px
+  text-align: center
+  font-size: 15px
+  color: hsl(0, 0%, 50%)
+  i[class^=icon]
+    font-size: 28px
+    color: hsl(0, 0%, 77%)
+    margin-right: 5px
+    vertical-align: -4px
+  a
+    color: hsl(0, 0%, 35%) !important
+    font-weight: bold
+    &:hover
+      color: hsl(0, 0%, 0%) !important
+      text-decoration: none
+
+main
+  .masthead
+    background: url(../images/newshelper-facebook.png) no-repeat 100% 0
+    min-height: 530px
+    .left
+      width: 480px
+      padding-top: 10px
+      h1
+        color: hsl(0, 0%, 25%)
+        text-shadow: hsl(0, 0%, 100%) 0px 1px 0px
+        font-size: 92px
+        font-weight: bold
+        display: inline-block
+        b
+          color: hsl(0, 0%, 10%)
+      .lead
+        color: hsl(0, 0%, 40%)
+        text-shadow: hsl(0, 0%, 100%) 0px 1px 0px
+        font-size: 27px
+        font-weight: bold
+        line-height: 0
+      .report-news
+        margin-top: 45px
+        .btn-report
+          color: hsl(0, 0%, 93%)
+          width: 460px
+          font-size: 18px
+          i[class^=icon]
+            color: white
+            font-size: 20px
+            vertical-align: -1px
+            margin-right: 5px
+          b
+            font-weight: bold
+            color: white
+        .description
+          margin-top: 5px
+          font-size: 14px
+          color: hsl(0, 45%, 60%)
+          i[class^=icon]
+            font-size: 16px
+            vertical-align: -1px
+            margin-right: 3px
+      .downloads
+        margin-top: 35px
+        .description
+          text-align: center
+          font-size: 18px
+          font-weight: bold
+          color: hsl(185, 70%, 40%)
+          text-shadow: hsl(0, 0%, 100%) 0px 1px 0px
+          i[class^=icon]
+            font-size: 19px
+            vertical-align: -1px
+            margin-right: 3px
+        .download-btns
+          margin-top: 5px
+          .btn
+            font-size: 16px
+            text-shadow: hsl(0, 0%, 20%) 0px 1px 0px
+            i[class^=icon]
+              margin-right: 5px
+              vertical-align: -1px
+          .btn + .btn
+            margin-left: 30px
+      .socials
+        margin-top: 30px
+        margin-right: 20px
+        padding-top: 20px
+        padding-left: 20px
+        line-height: 30px
+        @include border-radius(10px)
+        @include background-image(linear-gradient(top, hsla(0, 0%, 90%, 1), hsla(0, 0%, 93%, 0)))
+  .features
+    margin-top: 40px
+    .introduction
+      margin-top: 30px
+      // border-top: 1px solid hsl(0, 0%, 75%)
+      // @include box-shadow(hsl(0, 0%, 93%) 0px -1px 0px)
+      font-size: 17px
+      color: hsl(0, 0%, 40%)
+    .feature
+      display: inline-block
+      vertical-align: top
+      width: 260px
+      img
+        width: 260px
+        height: 215px
+        @include filter(grayscale(100%))
+        @include border-radius(5px)
+      .title
+        font-size: 20px
+        font-weight: bold
+        margin: 10px 0 5px 0
+        // color: hsl(120, 15%, 30%)
+        color: hsl(0, 0%, 35%)
+        text-align: center
+        text-shadow: hsl(0, 0%, 100%) 0px 1px 0px
+        i[class^=icon]
+          font-size: 20px
+          margin-right: 5px
+      .description
+        // color: hsl(120, 15%, 40%)
+        color: hsl(0, 0%, 50%)
+        font-size: 16px
+        text-align: justify
+    .feature + .feature
+      margin-left: 70px
+
+  .report-form
+    margin-top: 50px
+    form
+      // background: hsl(0, 0%, 93%)
+      @include background-image(linear-gradient(top, hsl(0, 0%, 95%), hsl(0, 0%, 93%)))
+      padding-top: 20px
+      padding-bottom: 45px
+      @include border-radius(10px)
+    .form-group
+      width: 500px
+      margin: 10px auto
+      label
+        font-size: 17px
+        color: hsl(0, 0%, 50%)
+        margin-bottom: 5px
+        font-weight: normal
+      input::-webkit-input-placeholder,
+      input::-moz-placeholder,
+      input:-moz-placeholder,
+      input:-ms-input-placeholder
+        color: hsl(0, 0%, 85%)
+        letter-spacing: 3px
+      .input-group-addon
+        color: hsl(0, 0%, 33%)
+    .submit-btn
+      margin-top: 20px
+      text-align: center
+      a
+        color: hsl(0, 0%, 97%) !important
+        font-weight: bold
+        text-shadow: hsl(0, 0%, 20%) 1px 1px 0px
+      i[class^=icon]
+        margin-right: 5px
+
+  .main
+    margin-top: 60px
+    // border-top: 1px solid hsl(0, 0%, 75%)
+    // @include box-shadow(hsl(0, 0%, 93%) 0px -1px 0px)
+    table
+      border-collapse: separate
+      border-spacing: 0 7px
+      thead tr
+        background: hsl(0, 0%, 60%)
+        color: white
+        font-size: 16px
+      tbody
+        tr:nth-child(odd)
+          background: hsl(0, 0%, 98%)
+        tr:nth-child(even)
+          background: hsl(0, 0%, 93%)
+      th:first-child, td:first-child
+        @include border-top-left-radius(4px)
+        @include border-bottom-left-radius(4px)
+      th:last-child, td:last-child
+        @include border-top-right-radius(4px)
+        @include border-bottom-right-radius(4px)
+      thead, tbody
+        th
+          text-align: center
+        th, td
+          vertical-align: middle
+        .update-at
+          text-align: center
+          width: 10%
+        .news-title
+          width: 35%
+        .problem
+          width: 45%
+        .reflink
+          text-align: center
+          width: 5%
+        .manage
+          text-align: center
+          width: 5%
+      tbody
+        .update-at
+          font-size: 13px
+          color: hsl(0, 0%, 30%)
+        .news-title
+          font-size: 15px
+          a
+            color: hsl(10, 50%, 50%) !important
+            &:hover
+              color: hsl(10, 80%, 50%) !important
+          .host
+            margin-top: 5px
+            color: hsl(210, 60%, 45%)
+            font-size: 11px
+            i[class^=icon]
+              vertical-align: -1px
+              margin-right: 5px
+        .problem
+          font-size: 15px
+          color: hsl(0, 0%, 40%)
+          font-weight: bold
+        .reflink, .manage
+          i[class^=icon]
+            margin-left: 3px
+        .manage
+          p
+            margin: 0
+          p + p
+            margin-top: 5px
