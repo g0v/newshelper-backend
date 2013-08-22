@@ -10,7 +10,7 @@ head
   title <?= $this->escape($this->title) ?> 新聞小幫手
   link(rel="stylesheet", href="css/app.css")
   script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
-  script(src="js/vendor.js")
+  script(src="/js/vendor.js")
   script(src="https://apis.google.com/js/plusone.js")
 
 <body>
@@ -19,14 +19,14 @@ a(href="https://github.com/g0v/newshelper-extension")
 header.navbar.navbar-default(role="banner")
   .container
     .navbar-header
-      a.navbar-brand(href="#")
+      a.navbar-brand(href="/")
         span.g0v
           img(src="images/g0v-icon-invert.png")
         span.site-title 新聞小幫手
     nav(role="navigation")
       ul.nav.navbar-nav.pull-right
         li
-          a(href="#features")
+          a(href="/#features")
             i.icon-zoom-in
             | 功能總覽
         li
@@ -34,11 +34,11 @@ header.navbar.navbar-default(role="banner")
             i.icon-info-sign
             | 使用說明
         li
-          a(href="#report")
+          a(href="/#report")
             i.icon-plus
             | 我要回報新聞
         li
-          a(href="#reported")
+          a(href="/#reported")
             i.icon-windows
             | 已回報新聞
         li
