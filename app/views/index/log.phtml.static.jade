@@ -33,11 +33,11 @@
         input.form-control.input-lg(type="url", name="report_link", placeholder="http://", value!="<?= $this->escape($this->report->report_link) ?>")
     .form-group
       input(type="checkbox", name="delete", value="1", checked!="<?= $this->report->deleted_at ? 'checked' : 'false' ?>")
-      label.control-label(for="delete_reason") 我要刪除這則回報（請填寫刪除原因）
+      label.control-label(for="deleted_reason") 我要刪除這則回報（請填寫刪除原因）
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-trash
-        input.form-control.input-lg(name="delete_reason", placeholder="刪除原因", required, value!="<?= $this->escape($this->report->getDeleteReason()) ?>")
+        input.form-control.input-lg(name="deleted_reason", placeholder="刪除原因", required, value!="<?= $this->escape($this->report->getDeleteReason()) ?>")
     .form-group.submit-btn
       button.btn.btn-default(type="submit", value="確定回報", style="display: none")
       a.btn.btn-success.btn-lg.btn-block(onclick="submit();")
