@@ -4,7 +4,7 @@ class IndexController extends Pix_Controller
 {
     public function init()
     {
-        $this->view->user = Pix_Session::get('google_mail');
+        $this->view->user = Pix_Session::get('user_id');
     }
 
     public function indexAction()
