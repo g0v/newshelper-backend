@@ -4,7 +4,7 @@ class IndexController extends Pix_Controller
 {
     public function init()
     {
-        $this->view->user = Pix_Session::get('google_mail');
+        $this->view->user = Pix_Session::get('user_id');
     }
 
     public function indexAction()
@@ -45,6 +45,7 @@ class IndexController extends Pix_Controller
             return $this->alert('找不到', '/');
         }
         $this->view->report = $report;
+        $this->view->is_login = $this->view->user ? true : false;
     }
 
     public function editAction()
@@ -97,7 +98,7 @@ class IndexController extends Pix_Controller
                 ));
             }
 
-            return $this->alert('新增成功', '/index/log/' . $this->report->id);
+            return $this->alert('修改成功', '/index/log/' . $report->id);
         }
 
     }
@@ -132,7 +133,7 @@ class IndexController extends Pix_Controller
             'new_values' => json_encode($report->toArray()),
         ));
 
-        return $this->alert('新增成功', '/');
+        return $this->alert('新增成功', '/index/log/' . $report->id);
     }
 
     protected function _checkReportData($data)

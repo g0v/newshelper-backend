@@ -1,9 +1,9 @@
-.swp
+.*.swp
 .DS_Store
 .map
 
 app/webdata/
-_backend/webdata/config.php
+config.php
 
 node_modules/
 npm-debug.log
