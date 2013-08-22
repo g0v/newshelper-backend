@@ -67,7 +67,7 @@
     i.icon-quote-left
     | 我要回報新聞
     i.icon-quote-right
-  form.form-horizontal(role="form", method="POST", action!="<?= $this->report ? '/index/edit/{$this->report->id}'' : '/index/add' ?>")
+  form.form-horizontal(role="form", method="POST", action="/index/add")
     .form-group
       label.control-label(for="news_link") 請貼上新聞連結
       .input-group.input-group-lg
