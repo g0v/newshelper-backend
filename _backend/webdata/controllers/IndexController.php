@@ -100,7 +100,6 @@ class IndexController extends Pix_Controller
             return $this->alert('新增成功', '/');
         }
 
-        $this->redraw('index/index.phtml');
     }
 
     public function addAction()
