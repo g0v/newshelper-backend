@@ -225,6 +225,22 @@ main
     margin-top: 60px
     // border-top: 1px solid hsl(0, 0%, 75%)
     // @include box-shadow(hsl(0, 0%, 93%) 0px -1px 0px)
+    .show-deleted
+      .desc
+        margin-right: 5px
+        font-size: 18px
+        font-weight: bold
+        color: hsl(0, 0%, 55%)
+      .checkbox.candy
+        margin-left: 0 !important
+        display: inline-block
+        background: hsl(0, 0%, 70%)
+        &:hover
+          cursor: pointer
+        .slide-button
+          background: hsl(0, 0%, 55%)
+        input.active ~ .slide-button
+          background: hsl(80, 80%, 40%)
     table
       border-collapse: separate
       border-spacing: 0 7px
@@ -278,6 +294,14 @@ main
             i[class^=icon]
               vertical-align: -1px
               margin-right: 5px
+          .deleted
+            margin-top: 5px
+            font-size: 14px
+            font-weight: bold
+            color: black
+            font-style: italic
+            @include opacity(1)
+            @include border-radius(5px)
         .problem
           font-size: 15px
           color: hsl(0, 0%, 40%)
@@ -290,3 +314,6 @@ main
             margin: 0
           p + p
             margin-top: 5px
+        .news.delete
+           display: none
+           @include opacity(0.67)

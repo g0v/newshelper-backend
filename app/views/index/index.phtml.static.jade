@@ -105,6 +105,15 @@
     i.icon-quote-left
     | 已回報新聞
     i.icon-quote-right
+  div
+    span.show-deleted.pull-right
+      span.desc 顯示已被刪除的新聞
+      label.checkbox.toggle.candy(style="width: 100px")
+        input(type="checkbox", name="show_deleted")
+        p
+          span ON
+          span OFF
+        a.slide-button
   table.table
     thead
       tr.news
@@ -150,6 +159,15 @@ script.
     /* 如果有送回報資訊過來，要幫 user 捲到 #report */
     if (window.location.search.indexOf("news_link") !== -1) {
       $("html, body").animate({scrollTop: $("#report").offset().top});
+    }
+
+    /* 開關「顯示已被刪除的新聞」 */
+    $("input[name=show_deleted]").click(function() {
+      var that = $(this);
+      that.toggleClass("active");
+      $(".news.delete").toggle();
+      console.log("clicked")
+    });
   });
 
 <?= $this->partial('/common/footer.phtml', $this) ?>
