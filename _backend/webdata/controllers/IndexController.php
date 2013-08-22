@@ -115,6 +115,10 @@ class IndexController extends Pix_Controller
             return $this->alert($e->getMessage(), '/');
         }
 
+        if ($report = Report::find_by_news_link($_POST['news_link'])) {
+            return $this->alert('這個連結已經被人回報過了，將會把您導向該回報去', '/index/log/' . $report->id);
+        }
+
         $report = Report::insert(array(
             'news_title' => strval($_POST['news_title']),
             'news_link' => strval($_POST['news_link']),
