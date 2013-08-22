@@ -97,10 +97,9 @@ class IndexController extends Pix_Controller
                 ));
             }
 
-            return $this->alert('新增成功', '/');
+            return $this->alert('新增成功', '/index/log/' . $this->report->id);
         }
 
-        $this->redraw('index/index.phtml');
     }
 
     public function addAction()
