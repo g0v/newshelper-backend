@@ -73,14 +73,14 @@
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-link
-        input.form-control.input-lg(type="url", name="news_link", placeholder="http://", required)
+        input.form-control.input-lg(type="url", name="news_link", value!="<?= $this->escape($this->data['news_link']) ?>", placeholder="http://", required)
     .form-group
       label.control-label(for="news_title")
         | 請填寫新聞標題
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-list-ul
-        input.form-control.input-lg(name="news_title", placeholder="新聞標題", required)
+        input.form-control.input-lg(name="news_title", placeholder="新聞標題", value!="<?= $this->escape($this->data['news_title']) ?>", required)
     .form-group
       label.control-label(for="report_title") 您覺得這則新聞有什麼問題？
       .input-group.input-group-lg
