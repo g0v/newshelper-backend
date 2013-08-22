@@ -39,8 +39,7 @@
           i.icon-trash
         input.form-control.input-lg(name="deleted_reason", placeholder="刪除原因", required, value!="<?= $this->escape($this->report->getDeleteReason()) ?>")
     .form-group.submit-btn
-      button.btn.btn-default(type="submit", value="確定回報", style="display: none")
-      a.btn.btn-success.btn-lg.btn-block(onclick="submit();")
+      button.btn.btn-success.btn-lg.btn-block(type="submit")
         i.icon-ok
         | 好了，照這樣改吧！
 
