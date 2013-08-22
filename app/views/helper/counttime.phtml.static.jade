@@ -1,0 +1,17 @@
+<?php $delta = time() - $this->time; ?>
+span.counttime(data-timestamp!="<?= $this->time ?>", title!="<?= date('Y/m/d H:i:s', $this->time) ?>")
+  <?php if ($this->time == 0) { ?>
+  never
+  <?php } elseif ($delta < 10) { ?>
+  <?= $delta ?>秒前
+  <?php } elseif ($delta < 60) { ?>
+  <?= 10 * ceil($delta / 10) ?>秒前
+  <?php } elseif ($delta < 60 * 60) { ?>
+  <?= floor($delta / 60) ?>分鐘前
+  <?php } elseif ($delta < 60 * 60 * 24) { ?>
+  <?= floor($delta / 60 / 60) ?>小時前
+  <?php } elseif ($delta < 60 * 60 * 24 * 365) { ?>
+  <?= floor($delta / 60 / 60 / 24) ?>天前
+  <?php } else { ?>
+  一年前
+  <?php } ?>
