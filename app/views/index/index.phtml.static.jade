@@ -136,11 +136,11 @@
             i.icon-signin
         td.manage
           p
-            a.btn.btn-success.btn-xs(href!="/index/log/<?= $report->id ?>")
+            a.btn.btn-success.btn-xs(href!="/index/edit/<?= $report->id ?>#logs")
               | 詳情
               i.icon-zoom-in
           p
-            a.btn.btn-warning.btn-xs(href!="/index/edit/<?= $report->id ?>#edit")
+            a.btn.btn-warning.btn-xs(href!="/index/edit/<?= $report->id ?>")
               | 修改
               i.icon-wrench
       <?php } ?>
