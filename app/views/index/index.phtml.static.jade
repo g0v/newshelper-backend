@@ -144,4 +144,12 @@
               | 修改
               i.icon-wrench
       <?php } ?>
+
+script.
+  $(function() {
+    /* 如果有送回報資訊過來，要幫 user 捲到 #report */
+    if (window.location.search.indexOf("news_link") !== -1) {
+      $("html, body").animate({scrollTop: $("#report").offset().top});
+  });
+
 <?= $this->partial('/common/footer.phtml', $this) ?>
