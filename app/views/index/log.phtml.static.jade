@@ -1,5 +1,30 @@
 <?= $this->partial('/common/header.phtml', $this) ?>
-.container.report-form#edit
+.container.show-news#show
+  h1
+    i.icon-quote-left
+    | 關於本則回報 (#<? $this->report->id} ?>)
+    i.icon-quote-right
+  .news-details
+    blockquote
+      h2 新聞標題
+      p <?= $this->escape($this->report->news_title) ?>
+    blockquote
+      h2 新聞連結
+      p
+        a(href!="<?= $this->escape($this->report->news_link) ?>") <?= $this->escape($this->report->news_link) ?>
+    blockquote
+      h2 問題重點
+      p <?= $this->escape($this->report->report_title) ?>
+    blockquote
+      h2 相關真相連結
+      p
+        a(href!="<?= $this->escape($this->report->report_link) ?>") <?= $this->escape($this->report->report_link) ?>
+    blockquote.edit-btn
+      p 我覺得這則回報有問題…
+        a.show-edit-form-btn 我要協助修正！<br>
+        | // 小幫手提醒您，每次修正都會被詳實地記錄下來（包含修正者的 IP 地址）
+
+.container.report-form#edit(style="display: none")
   h1
     i.icon-quote-left
     | 修改回報內容
@@ -67,4 +92,14 @@
         td.old-val <?= $this->partial('index/log_show.phtml', array('value' => $change_log->getOldDiffValues())) ?>
         td.new-val <?= $this->partial('index/log_show.phtml', array('value' => $change_log->getNewDiffValues())) ?>
       <?php } ?>
+
+script.
+  $(function() {
+    /* 使用者點選「我要協助修正」之後會顯示並捲到修改用的 form */
+    $(".show-edit-form-btn").click(function() {
+      $("#edit").slideDown(1000, function() {
+        $("html,body").animate({scrollTop: $("#edit").offset().top});
+      });
+    });
+  });
 <?= $this->partial('/common/footer.phtml', $this) ?>

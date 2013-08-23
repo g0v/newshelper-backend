@@ -221,6 +221,44 @@ main
       i[class^=icon]
         margin-right: 5px
 
+.show-news
+  margin-top: 50px
+  .news-details
+    @include background-image(linear-gradient(top, hsl(0, 0%, 95%), hsl(0, 0%, 93%)))
+    padding-top: 20px
+    padding-bottom: 45px
+    @include border-radius(10px)
+    blockquote
+      width: 720px
+      margin: 0 auto
+      border-left-color: hsl(0, 0, 80%)
+      padding: 0 10px 10px 10px
+      margin-bottom: 10px
+      word-wrap: break-word
+      &.edit-btn
+        border-left-color: hsl(0, 50%, 80%)
+        margin-top: 40px
+        padding-top: 10px
+        p
+          font-size: 15px
+          color: hsl(0, 0%, 70%)
+          a
+            color: hsl(0, 50%, 70%)
+            font-weight: bold
+            &:hover
+              color: hsl(0, 50%, 45%)
+              cursor: pointer
+              text-decoration: none
+      h2
+        padding-top: 10px
+        font-size: 18px
+        color: hsl(0, 0%, 50%)
+        font-weight: normal
+      p
+        font-size: 20px
+        line-height: 1.5
+        color: hsl(0, 0%, 30%)
+
   .main
     margin-top: 60px
     // border-top: 1px solid hsl(0, 0%, 75%)
