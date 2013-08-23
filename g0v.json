@@ -1,0 +1,55 @@
+{
+  "author": "ronnywang",
+  "status": "production",
+  "name": "newshelper-backend",
+  "name_zh": "新聞小幫手",
+  "description": "newshelper-backend: the backend of newshelper",
+  "description_zh": "newshelper-backend: 新聞小幫手的網站與API後台",
+  "homepage": "http://newshelper.g0v.tw",
+  "document": "https://docs.google.com/spreadsheet/ccc?key=0AvCxAZD9rYXMdGFrSjBHb2IxTW5mSE5vQVhGaThiX3c",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/g0v/newshelper-backend"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "keywords": [
+    "javascript",
+    "jquery",
+    "php",
+    "bootstrap"
+  ],
+  "audience": [
+    "public"
+  ],
+  "products": [
+    "website"
+  ],
+  "projects": [
+    "新聞小幫手"
+  ],
+  "contributors": [
+    "ronnywang",
+    "Wonder",
+    "dannvix",
+    "Kirsten",
+    "Wahaho",
+    "Natata",
+    "kcwu",
+    "Lois",
+    "Miaout17",
+    "Michael LI",
+    "wychi",
+    "zhusee2"
+  ],
+  "needs": [
+    "designer",
+    "writer",
+    "progammer",
+    "內容管理"
+  ]
+}
+
