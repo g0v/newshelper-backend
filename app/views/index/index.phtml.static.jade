@@ -134,8 +134,9 @@
             i.icon-bolt
             | <?= $this->escape(parse_url($report->news_link, PHP_URL_HOST)) ?>
           <?php if ($report->deleted_at) { ?>
-          .deleted
-            | 已於 <?= $this->partial('/helper/counttime.phtml', arraY('time' => $report->deleted_at)) ?> 被刪除： <?= $this->escape($report->getDeleteReason()) ?>
+          hr
+          span.deleted
+            | 已於<?= $this->partial('/helper/counttime.phtml', arraY('time' => $report->deleted_at)) ?>被刪除：<?= $this->escape($report->getDeleteReason()) ?>
           <?php } ?>
         td.problem
           | <?= $this->escape($report->report_title) ?>
@@ -165,8 +166,7 @@ script.
     $("input[name=show_deleted]").click(function() {
       var that = $(this);
       that.toggleClass("active");
-      $(".news.delete").toggle();
-      console.log("clicked")
+      $(".news.delete").toggle(1000);
     });
   });
 

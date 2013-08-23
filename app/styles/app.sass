@@ -332,14 +332,13 @@ main
             i[class^=icon]
               vertical-align: -1px
               margin-right: 5px
-          .deleted
+          hr
             margin-top: 5px
+            margin-bottom: 5px
+          .deleted
             font-size: 14px
             font-weight: bold
             color: black
-            font-style: italic
-            @include opacity(1)
-            @include border-radius(5px)
         .problem
           font-size: 15px
           color: hsl(0, 0%, 40%)
@@ -354,5 +353,4 @@ main
             margin-top: 5px
         .news.delete
           display: none
-          @include filter(grayscale(0.75))
-          @include opacity(0.65)
+          @include filter(grayscale(0.85))
