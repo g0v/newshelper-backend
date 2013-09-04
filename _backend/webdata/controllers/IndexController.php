@@ -29,7 +29,7 @@ class IndexController extends Pix_Controller
 
         return $this->json(array(
             'status' => 1,
-            'time' => time(),
+            'time' => $now,
             'next_url' => 'http://' . $_SERVER['HTTP_HOST'] . '/index/data?time=' . $now,
             'data' => array_map(function($r){
                 $r['report_link'] = 'http://' . $_SERVER['HTTP_HOST'] . '/index/log/' . $r['id'];
@@ -74,13 +74,14 @@ class IndexController extends Pix_Controller
             }
 
             $old_values = $report->toArray();
+            $now = time();
             $report->update(array(
                 'news_title' => strval($_POST['news_title']),
                 'news_link' => strval($_POST['news_link']),
                 'report_title' => strval($_POST['report_title']),
                 'report_link' => strval($_POST['report_link']),
-                'updated_at' => time(),
-                'deleted_at' => intval($_POST['delete']) ? time() : 0,
+                'updated_at' => $now,
+                'deleted_at' => intval($_POST['delete']) ? $now : 0,
             ));
             $new_values = $report->toArray();
             if ($_POST['delete']) {
@@ -90,7 +91,7 @@ class IndexController extends Pix_Controller
             if ($new_values != $old_values) {
                 ReportChangeLog::insert(array(
                     'report_id' => $report->id,
-                    'updated_at' => time(),
+                    'updated_at' => $now,
                     'updated_from' => intval(ip2long($_SERVER['REMOTE_ADDR'])),
                     'updated_by' => strval($this->view->user),
                     'old_values' => json_encode($old_values),
@@ -119,18 +120,20 @@ class IndexController extends Pix_Controller
             return $this->alert('這個連結已經被人回報過了，將會把您導向該回報去', '/index/log/' . $report->id);
         }
 
+        $now = time();
+
         $report = Report::insert(array(
             'news_title' => strval($_POST['news_title']),
             'news_link' => strval($_POST['news_link']),
             'report_title' => strval($_POST['report_title']),
             'report_link' => strval($_POST['report_link']),
-            'created_at' => time(),
-            'updated_at' => time(),
+            'created_at' => $now,
+            'updated_at' => $now,
         ));
 
         ReportChangeLog::insert(array(
             'report_id' => $report->id,
-            'updated_at' => time(),
+            'updated_at' => $now,
             'updated_from' => intval(ip2long($_SERVER['REMOTE_ADDR'])),
             'updated_by' => strval($this->view->user),
             'old_values' => '',
