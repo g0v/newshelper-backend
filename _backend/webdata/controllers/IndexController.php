@@ -46,6 +46,7 @@ class IndexController extends Pix_Controller
         }
         $this->view->report = $report;
         $this->view->is_login = $this->view->user ? true : false;
+        $this->view->title = $report->news_title;
     }
 
     public function editAction()
