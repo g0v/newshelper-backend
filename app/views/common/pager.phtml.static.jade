@@ -1,0 +1,28 @@
+.pagination
+  ul.pagination
+    <?php if ($this->page > 1) { ?>
+    li
+      a(href!="<?= $this->escape($this->pagerBaseUri . 1) ?>#page-top") &laquo;
+    <?php } else { ?>
+    li.disabled
+      a(href="#") &laquo;
+    <?php } ?>
+
+    <?php $start = max(1, min($this->max_page - 4, $this->page - 2)); ?>
+    <?php for ($i = $start; $i < min($this->max_page + 1, $start + 5); $i ++) { ?>
+    <?php if ($this->page == $i) { ?>
+    li.active
+      a(href!="<?= $this->escape($this->pagerBaseUri . $i) ?>#page-top") <?= $i ?>
+    <?php } else {?>
+    li
+      a(href!="<?= $this->escape($this->pagerBaseUri . $i) ?>#page-top") <?= $i ?>
+    <?php } ?>
+    <?php } ?>
+
+    <?php if ($this->page < $this->max_page) { ?>
+    li
+      a(href!="<?= $this->escape($this->pagerBaseUri . $this->max_page) ?>#page-top") &raquo;
+    <?php } else { ?>
+    li.disabled
+      a(href="#") &raquo;
+    <?php } ?>
