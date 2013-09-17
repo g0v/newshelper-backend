@@ -114,6 +114,7 @@
           span ON
           span OFF
         a.slide-button
+  a(name="page-top")
   table.table
     thead
       tr.news
@@ -123,7 +124,7 @@
         th.reflink 真相
         th.manage 管理
     tbody
-      <?php foreach (Report::search(1)->order('updated_at DESC') as $report) { ?>
+      <?php foreach (Report::search(1)->offset($this->per_page * ($this->page - 1))->limit($this->per_page)->order('updated_at DESC') as $report) { ?>
       tr.news(class!="<?= $report->deleted_at ? 'delete' : '' ?>")
         td.update-at <?= $this->partial('/helper/counttime.phtml', array('time' => $report->updated_at)) ?>
         td.news-title
@@ -154,6 +155,7 @@
               | 修改
               i.icon-wrench
       <?php } ?>
+  <?= $this->partial('/common/pager.phtml', $this) ?>
 
 script.
   $(function() {

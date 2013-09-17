@@ -9,7 +9,13 @@ class IndexController extends Pix_Controller
 
     public function indexAction()
     {
+        $per_page = 20;
+
         $this->view->data = $_GET;
+        $this->view->page = max(1, intval($_GET['page']));
+        $this->view->max_page = ceil(count(Report::search(1)) / $per_page);
+        $this->view->per_page = $per_page;
+        $this->view->pagerBaseUri = '/?page=';
     }
 
     public function dataAction()
