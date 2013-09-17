@@ -4,7 +4,9 @@ class IndexController extends Pix_Controller
 {
     public function init()
     {
-        $this->view->user = Pix_Session::get('user_id');
+        if ($user_id = intval(Pix_Session::Get('user_id'))) {
+            $this->view->user = User::find($user_id);
+        }
     }
 
     public function indexAction()
@@ -100,7 +102,7 @@ class IndexController extends Pix_Controller
                     'report_id' => $report->id,
                     'updated_at' => $now,
                     'updated_from' => intval(ip2long($_SERVER['REMOTE_ADDR'])),
-                    'updated_by' => strval($this->view->user),
+                    'updated_by' => strval($this->view->user->user_id),
                     'old_values' => json_encode($old_values),
                     'new_values' => json_encode($new_values),
                 ));
@@ -142,7 +144,7 @@ class IndexController extends Pix_Controller
             'report_id' => $report->id,
             'updated_at' => $now,
             'updated_from' => intval(ip2long($_SERVER['REMOTE_ADDR'])),
-            'updated_by' => strval($this->view->user),
+            'updated_by' => strval($this->view->user->user_id),
             'old_values' => '',
             'new_values' => json_encode($report->toArray()),
         ));

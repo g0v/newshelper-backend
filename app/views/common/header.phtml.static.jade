@@ -40,7 +40,7 @@ header.navbar.navbar-default(role="banner")
         li
           a(href="/#report")
             i.icon-plus
-            | 我要回報新聞
+            | 我要回報
         li
           a(href="/#reported")
             i.icon-windows
@@ -48,6 +48,24 @@ header.navbar.navbar-default(role="banner")
         li
           a(href="http://g0v.tw", target="_blank")
             i.icon-link
-            | 關於零時政府
+            | 零時政府
+        li.dropbown
+          <?php if ($this->user) { ?>
+          a.dropdown-toggle(href="#", data-toggle="dropdown")
+            i.icon-user
+            | <?= $this->escape($this->user->getUserName('name-only')) ?>
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href="login/logout") 登出
+          <?php } else { ?>
+          a.dropdown-toggle(href="#", data-toggle="dropdown")
+            i.icon-user
+            | 登入
+            b.caret
+          ul.dropdown-menu
+            li
+              a(href="login/google") Google 登入
+          <?php } ?>
 
 <main role="main">
