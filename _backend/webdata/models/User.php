@@ -8,7 +8,9 @@ class UserRow extends Pix_Table_Row
             return '#';
         }
 
-        if ($full) {
+        if ('name-only' == $full) {
+            return $matches[1];
+        } else if ($full) {
             return $matches[1] . '@' . $matches[2];
         } else {
             return substr($matches[1], 0, 3) . '...@' . $matches[2];
