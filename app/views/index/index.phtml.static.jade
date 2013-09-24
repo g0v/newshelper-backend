@@ -124,7 +124,7 @@
         th.reflink 真相
         th.manage 管理
     tbody
-      <?php foreach (Report::search(1)->offset($this->per_page * ($this->page - 1))->limit($this->per_page)->order('updated_at DESC') as $report) { ?>
+      <?php foreach (Report::search($this->search_query)->offset($this->per_page * ($this->page - 1))->limit($this->per_page)->order('updated_at DESC') as $report) { ?>
       tr.news(class!="<?= $report->deleted_at ? 'delete' : '' ?>")
         td.update-at <?= $this->partial('/helper/counttime.phtml', array('time' => $report->updated_at)) ?>
         td.news-title

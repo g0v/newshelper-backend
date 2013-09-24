@@ -14,6 +14,12 @@ class IndexController extends Pix_Controller
         $per_page = 20;
 
         $this->view->data = $_GET;
+        if ($_GET['q']) {
+            $q = addslashes($_GET['q']);
+            $this->view->search_query = "news_title LIKE '%$q%' OR news_link LIKE '%$q%' OR report_link LIKE '%$q%' OR report_title LIKE '%$q%'";
+        } else {
+            $this->view->search_query = '1';
+        }
         $this->view->page = max(1, intval($_GET['page']));
         $this->view->max_page = ceil(count(Report::search(1)) / $per_page);
         $this->view->per_page = $per_page;
