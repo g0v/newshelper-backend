@@ -9,8 +9,8 @@ set_include_path(__DIR__ . '/stdlibs/pixframework/'
 
 Pix_Loader::registerAutoLoad();
 
-if (file_exists(__DIR__ . '/../config.php')) {
-    include(__DIR__ . '/../config.php');
+if (file_exists(__DIR__ . '/../../config.php')) {
+    include(__DIR__ . '/../../config.php');
 }
 // TODO: 之後要搭配 geoip
 date_default_timezone_set('Asia/Taipei');
