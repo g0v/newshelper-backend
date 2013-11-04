@@ -94,8 +94,7 @@
           i.icon-quote-left
         input.form-control.input-lg(type="url", name="report_link", placeholder="http://", required)
     .form-group.submit-btn
-      button.btn.btn-default(type="submit", value="確定回報", style="display: none")
-      a.btn.btn-info.btn-lg.btn-block(onclick="submit();")
+      button.btn.btn-info.btn-lg.btn-block(type="submit", value="確定回報")
         i.icon-ok
         | 我都填好了，確定回報！
     input(type="hidden", name="sToken", value!="<?= Helper::getStoken() ?>")
