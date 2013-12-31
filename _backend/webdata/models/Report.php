@@ -26,6 +26,7 @@ class Report extends Pix_Table
         $this->_columns['deleted_at'] = array('type' => 'int', 'default' => 0);
         $this->_columns['news_title'] = array('type' => 'varchar', 'size' => 255);
         $this->_columns['news_link'] = array('type' => 'varchar', 'size' => 255);
+        $this->_columns['news_link_unique'] = array('type' => 'varchar', 'size' => 255);
         $this->_columns['report_link'] = array('type' => 'varchar', 'size' => 255);
         $this->_columns['report_title'] = array('type' => 'varchar', 'size' => 255);
 
