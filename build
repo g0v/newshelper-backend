@@ -12,7 +12,7 @@ echo "[*] copying backend to _public/"
 cp -rf _backend _public
 
 echo "[*] building static assets"
-./node_modules/.bin/brunch b -o
+./node_modules/.bin/brunch build --production
 
 echo "[*] copying asset files into _public/"
 cp -rf app/webdata/* _public/webdata/
