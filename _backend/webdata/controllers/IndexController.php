@@ -134,12 +134,16 @@ class IndexController extends Pix_Controller
         if ($report = Report::find_by_news_link($_POST['news_link'])) {
             return $this->alert('這個連結已經被人回報過了，將會把您導向該回報去', '/index/log/' . $report->id);
         }
+        if ($normaled_news_link = URLNormalizer::query($_POST['news_link']) and $report = Report::find_by_news_link_unique($normaled_news_link->normalized_id)) {
+            return $this->alert('這個連結已經被人回報過了，將會把您導向該回報去', '/index/log/' . $report->id);
+        }
 
         $now = time();
 
         $report = Report::insert(array(
             'news_title' => strval($_POST['news_title']),
             'news_link' => strval($_POST['news_link']),
+            'news_link_unique' => $normaled_news_link ? $normaled_report_link->normalized_id : '',
             'report_title' => strval($_POST['report_title']),
             'report_link' => strval($_POST['report_link']),
             'created_at' => $now,
@@ -173,6 +177,9 @@ class IndexController extends Pix_Controller
             throw new Exception("請輸入合法打臉網址");
         }
         if ($data['report_link'] == $data['news_link']) {
+            throw new Exception("打臉連結不能與新聞連結相同，打臉連結請提供有提出指正該新聞錯誤證據的消息來源");
+        }
+        if ($normaled_report_link = URLNormalizer::query($data['report_link']) and $normaled_news_link = URLNormalizer::query($data['news_link']) and $normaled_report_link->normalized_id == $normaled_news_link->normalized_id) {
             throw new Exception("打臉連結不能與新聞連結相同，打臉連結請提供有提出指正該新聞錯誤證據的消息來源");
         }
     }
