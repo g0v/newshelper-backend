@@ -6,6 +6,9 @@ class URLNormalizer
 
     public static function query($url)
     {
+        if (is_null(self::$_url_cache)) {
+            self::$_url_cache = array();
+        }
         if (array_key_exists($url, self::$_url_cache)) {
             return self::$_url_cache[$url];
         }
