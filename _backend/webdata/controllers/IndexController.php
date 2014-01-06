@@ -143,7 +143,7 @@ class IndexController extends Pix_Controller
         $report = Report::insert(array(
             'news_title' => strval($_POST['news_title']),
             'news_link' => strval($_POST['news_link']),
-            'news_link_unique' => $normaled_news_link ? $normaled_report_link->normalized_id : '',
+            'news_link_unique' => $normaled_news_link ? $normaled_news_link->normalized_id : '',
             'report_title' => strval($_POST['report_title']),
             'report_link' => strval($_POST['report_link']),
             'created_at' => $now,
