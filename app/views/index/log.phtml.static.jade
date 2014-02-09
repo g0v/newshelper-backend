@@ -73,6 +73,22 @@
         i.icon-ok
         | 好了，照這樣改吧！
 
+.container.main#forum
+  #fb-root
+  script.
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=<?= getenv(FB_APPID) ?>";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  h1
+    i.icon-quote-left
+    | 討論
+    i.icon-quote-right
+  .fb-comments(data-href!="http://newshelper.g0v.tw/index/log/<?= $this->report->id ?>", data-numposts="5", data-colorscheme="light")
+
 .container.main#logs
   h1
     i.icon-quote-left
