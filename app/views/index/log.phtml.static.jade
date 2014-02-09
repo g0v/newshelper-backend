@@ -19,6 +19,11 @@
       h2 相關真相連結
       p
         a(href!="<?= $this->escape($this->report->report_link) ?>") <?= $this->escape($this->report->report_link) ?>
+    <?php if ($this->report->deleted_at) { ?>
+    blockquote.delete-reason
+      h2 本回報已被刪除
+      p <?= $this->escape($this->report->getDeleteReason()) ?>
+    <?php } ?>
     blockquote.edit-btn
       p 我覺得這則回報有問題…
         a.show-edit-form-btn 我要協助修正！<br>
