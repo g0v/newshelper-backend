@@ -18,7 +18,7 @@ date_default_timezone_set('Asia/Taipei');
 if (!getenv('DATABASE_URL')) {
     die('need DATABASE_URL');
 }
-if (!preg_match('#mysql://([^:]*):([^@]*)@([^/]*)/(.*)#', strval(getenv('DATABASE_URL')), $matches)) {
+if (!preg_match('#mysql://([^:]*):?([^@]*)@([^/]*)/(.*)#', strval(getenv('DATABASE_URL')), $matches)) {
     die('mysql only');
 }
 
