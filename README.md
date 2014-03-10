@@ -24,9 +24,9 @@ http://newshelper.g0v.tw/
 
    `Report::createTable(); ReportChangeLog::createTable();`
 
- 1 如果以上沒有任何錯誤訊息，代表資料庫建立完成了。
+ 1. 如果以上沒有任何錯誤訊息，代表資料庫建立完成了。
 
-   接下來請執行 `./build` 即可產成 _public 目錄
+    接下來請執行 `./build` 即可產成 _public 目錄
 
  1. 最後將 web server 的 document root 指到 _public 資料夾即可。
 
