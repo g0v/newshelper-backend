@@ -162,18 +162,26 @@ class IndexController extends Pix_Controller
         return $this->alert('新增成功', '/index/log/' . $report->id);
     }
 
+    protected function validateURL($url)
+    {
+        if (!preg_match('#^https?://#', $url)) {
+            return true;
+        }
+        return false;
+    }
+
     protected function _checkReportData($data)
     {
         if (!$data['news_title']) {
             throw new Exception("未輸入新聞標題");
         }
-        if (!$data['news_link'] or !filter_var($data['news_link'], FILTER_VALIDATE_URL)) {
+        if (!$data['news_link'] or !$this->validateURL($data['news_link'])) {
             throw new Exception("請輸入合法新聞網址");
         }
         if (!$data['report_title']) {
             throw new Exception("未輸入打臉簡介");
         }
-        if (!$data['report_link'] or !filter_var($data['report_link'], FILTER_VALIDATE_URL)) {
+        if (!$data['report_link'] or !$this->validateURL($data['report_link'])) {
             throw new Exception("請輸入合法打臉網址");
         }
         if ($data['report_link'] == $data['news_link']) {
