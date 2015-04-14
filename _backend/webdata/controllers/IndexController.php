@@ -165,9 +165,9 @@ class IndexController extends Pix_Controller
     protected function validateURL($url)
     {
         if (!preg_match('#^https?://#', $url)) {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     protected function _checkReportData($data)
