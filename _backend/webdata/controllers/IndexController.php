@@ -181,6 +181,10 @@ class IndexController extends Pix_Controller
         if (!$data['report_title']) {
             throw new Exception("未輸入打臉簡介");
         }
+        if (preg_match('#^[0-9A-Za-z]*$#', $data['news_title']) and preg_match('#^[0-9A-Za-z]*$#', $data['report_title'])) {
+            throw new Exception("Invalid input");
+        }
+
         if (!$data['report_link'] or !$this->validateURL($data['report_link'])) {
             throw new Exception("請輸入合法打臉網址");
         }
