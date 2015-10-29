@@ -12,9 +12,12 @@ $column_map = array(
 ?>
 
 dl.dl-horizontal
+  <?php if ($this->revert_button) { ?>
+  <dt></dt><dd><a href="#" class="revert-version">退回此版本</a></dd>
+  <?php } ?>
   <?php foreach ($this->value as $k => $v) { ?>
   <dt><?= $this->escape(array_key_exists($k, $column_map) ? $column_map[$k] : $k) ?></dt>
-  <dd>
+  <dd class="data-<?= $k ?>">
   <?php if (in_array($k, array('created_at', 'updated_at', 'deleted_at'))) { ?>
   <?= $this->partial('/helper/counttime.phtml', array('time' => $v)) ?>
   <?php } else { ?>

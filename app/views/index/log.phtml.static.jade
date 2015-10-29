@@ -109,9 +109,11 @@
     tbody
       <?php foreach (ReportChangeLog::search(array('report_id' => $this->report->id))->order('updated_at DESC') as $change_log) { ?>
       tr.news
-        td.timestamp <?= date('c', $change_log->updated_at) ?>
+        td.timestamp
+            <?= date('c', $change_log->updated_at) ?>
         td.editor <?= $this->escape($change_log->updater ? $change_log->updater->getUserName($this->is_login) : '') ?> IP: <?= long2ip($change_log->updated_from) ?>
-        td.old-val <?= $this->partial('index/log_show.phtml', array('value' => $change_log->getOldDiffValues())) ?>
+        td.old-val
+          <?= $this->partial('index/log_show.phtml', array('value' => $change_log->getOldDiffValues(), 'revert_button' => true)) ?>
         td.new-val <?= $this->partial('index/log_show.phtml', array('value' => $change_log->getNewDiffValues())) ?>
       <?php } ?>
 
@@ -122,6 +124,19 @@ script.
       $("#edit").slideDown(1000, function() {
         $("html,body").animate({scrollTop: $("#edit").offset().top});
       });
+    });
+
+    $(".revert-version").click(function(e){
+      e.preventDefault();
+      if (confirm("確定要退回" + $(this).parents('td.old-val').find('.data-news_title').text())) {
+        if ($(this).parents('td.old-val').find('.data-news_title').length) {
+          $('input[name="news_title"]').val($.trim($(this).parents('td.old-val').find('.data-news_title').text()));
+        }
+        if ($(this).parents('td.old-val').find('.data-report_title').length) {
+          $('input[name="report_title"]').val($.trim($(this).parents('td.old-val').find('.data-report_title').text()));
+        }
+        $('.submit-btn button').click();
+      }
     });
   });
 <?= $this->partial('/common/footer.phtml', $this) ?>
