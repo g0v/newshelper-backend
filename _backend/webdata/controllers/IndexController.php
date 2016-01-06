@@ -195,4 +195,10 @@ class IndexController extends Pix_Controller
             throw new Exception("打臉連結不能與新聞連結相同，打臉連結請提供有提出指正該新聞錯誤證據的消息來源");
         }
     }
+
+    public function healthAction()
+    {
+        echo 'ok';
+        return $this->noview();
+    }
 }
