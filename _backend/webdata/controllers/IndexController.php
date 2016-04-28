@@ -31,9 +31,6 @@ class IndexController extends Pix_Controller
         $time = intval($_GET['time']);
         $last_time = Report::search(1)->max('updated_at')->updated_at;
         $now = time();
-        if ($_SERVER['HTTP_USER_AGENT'] != 'Amazon CloudFront') {
-            return $this->redirect('http://d3n4xylkjv5pnb.cloudfront.net/index/data/?time=' . intval($time));
-        }
 
         if ($time >= $last_time) {
             return $this->json(array(
