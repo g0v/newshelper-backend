@@ -42,7 +42,7 @@ class IndexController extends Pix_Controller
         }
 
         if ($time) {
-            header('Cache-Control: max-age=86400');
+            header('Cache-Control: max-age=300');
         }
 
         return $this->json(array(
