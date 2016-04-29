@@ -32,6 +32,10 @@ class IndexController extends Pix_Controller
         $last_time = Report::search(1)->max('updated_at')->updated_at;
         $now = time();
 
+        if ($time) {
+            header('Cache-Control: max-age=300');
+        }
+
         if ($time >= $last_time) {
             return $this->json(array(
                 'status' => 0,
@@ -39,10 +43,6 @@ class IndexController extends Pix_Controller
                 'next_url' => 'http://' . $_SERVER['HTTP_HOST'] . '/index/data?time=' . $now,
                 'data' => array(),
             ));
-        }
-
-        if ($time) {
-            header('Cache-Control: max-age=300');
         }
 
         return $this->json(array(
