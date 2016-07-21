@@ -33,7 +33,7 @@ class IndexController extends Pix_Controller
         $now = time();
 
         if ($time) {
-            header('Cache-Control: max-age=300');
+            header('Cache-Control: max-age=3600');
         }
 
         if ($time >= $last_time) {
