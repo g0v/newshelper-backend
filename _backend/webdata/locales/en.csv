@@ -1,0 +1,60 @@
+中文,翻譯
+新聞<b>小幫手</b>,News Helper
+揪出問題新聞、守護您的網路閱聽品質,Identify hoaxes / fake news and safeguard your news reading experience
+我也想盡一份心，立刻<b>回報問題新聞</b>,I want to help! <b>Report false news </b>now.
+問題新聞 — 具有明顯的客觀錯誤，例如：<b>沒有任何科學根據佐證</b>的報導,Fake news - for example: full of dubious sources or entirely lacking of evidence
+下載瀏覽器擴充套件，現在就把小幫手帶回家,Download browser extension and bring News Helper home
+Chrome 點我,Chrome please click me.
+Firefox 點我,Firefox please click me.
+Safari 點我,Safari please click me.
+功能總覽,Function Overview
+即時監測問題新聞,Real-time false news detection
+瀏覽 Facebook 等各大網站時，由本地資料庫資訊在瀏覽器內即時檢查新聞是否曾被回報，<b>不會傳回任何瀏覽記錄，兼顧隱私與網路閱聽品質</b>。,"When you browse sites like Facebook, the local server will check in your browser whether any news has been reported fake. Rest assured that no browsing data will be sent to any remote server."
+整合式回報按鈕,Intergrated report button
+在 Facebook 介面完美整合回報按鈕，簡單一個步驟即可回報問題新聞，您隨時也能為守護網路閱聽品質盡一份心力！,"The fake news report button is seamless integrated on Facebook, so you can easily report fake news as you browse."
+背景提醒訊息,Bakcground notification message
+新聞小幫手會默默地在背景更新本地資料，若發現您曾經讀過的新聞被加入回報資訊，將彈出訊息提醒，滴水不漏地守護您。,"News Helper is silently updating its local database. If it finds a reporting of a news story that you have read, it will pop up a message to help you fight off misinformation. "
+在媒體亂象日趨嚴重當下，「新聞小幫手」藉助科技與群眾的力量，提供一個平台讓每個人回報有問題的新聞，並且透過瀏覽器擴充套件即時監控每一個網頁，當發現您正在瀏覽可能有問題的媒體資訊時，「新聞小幫手」會適時提醒您要抱持懷疑的態度來審視網路上的訊息，期盼結合每個人的貢獻，共同提升網路閱聽品質。,"In this age of flooding misinformation, News Helper use the power of crowd-sourcing to provide a platform for all to report dubious or down-right untrue news articles. Using the browser extension to monitor every news site, the News Helper will timely remind you to keep an critical eye when reading news off the internet. We hope that collectively we can maintain a quality news reading experience online."
+「新聞小幫手」所有檢測都在您的電腦裡完成，不會傳送任何瀏覽記錄，無需擔心任何上網隱私外洩。<br/>所有擴充套件皆為完全開放原始碼的專案，若有任何疑慮可以閱讀原始碼以求證安全性。,News Helper is doing all the news checking locally. Now browsing data will be sent over the internet. All browser plugins are open sourced projects. Feel free to read the source code to erase any concerns.
+我要回報新聞,I want to report this news.
+請貼上新聞連結,Please give us the link to the news.
+請填寫新聞標題,Please tell us the title of the news.
+新聞標題,Title of the news
+您覺得這則新聞有什麼問題？,What's wrong with this news?
+問題重點,Source of the problem
+真相貼上相關真相的連結，以佐證您的回報,Please post relevant fact-checking links to support your reporting
+確定回報,Report now
+我都填好了，確定回報！,I'm done. Go ahead and report
+已回報新聞,News with reported problems
+顯示已被刪除的新聞,Show deleted news stories
+最後更新,Last update
+新聞,News
+問題點,Problem
+真相,Fact-checks
+管理,Manage
+已於%s被刪除：%s,Deleted at %s
+連結,Link
+詳情,Detail
+修改,Modify
+關於本則回報,About this report
+新聞連結,Link to the news
+相關真相連結,Link to fact-checks
+本回報已被刪除,This report has been deleted.
+我覺得這則回報有問題…,Something wrong with this report.
+我要協助修正！,I want to help with editing!
+// 小幫手提醒您，每次修正都會被詳實地記錄下來（包含修正者的 IP 地址）,"Friendly reminder: every modification is recorded, including the modifier's IP address"
+// 若是該新聞已經被刪除或是修正完成，請勿將此回報刪除，可以在理由後面加上（已修正），以避免在社群網站仍有人在轉貼而不知,"If this news article has been removed or edited, please do not delete this reporting; simply append ""Updated"" in the end, so that people won't still share it unknowingly on social media."
+我要刪除這則回報（請填寫刪除原因）,I want to delete this report (please fill in the reason of deletino)
+刪除原因,Reason of deletion
+好了，照這樣改吧！,"Ok, let update it as such"
+詳細編修記錄,Detailed edit history
+時間,Timestamp
+修改人,Edited by
+舊值,previous value
+新值,updated value
+確定要退回,Are you sure you want to recind?
+修改時間,edit time
+真相連結,link to the fact-checks
+刪除時間,deleted at  
+建立時間,created at
+退回此版本,rewind this version
