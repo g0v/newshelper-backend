@@ -15,6 +15,19 @@ class I18nLib
         return null;
     }
 
+    public static function getWords()
+    {
+        $fp = fopen(__DIR__ . '/../locales/zh-tw.csv', 'r');
+
+        fgetcsv($fp);
+        $words = array();
+        fgetcsv($fp);
+        while ($rows = fgetcsv($fp)) {
+            $words[$rows[0]] = true;
+        }
+        return array_keys($words);
+    }
+
     public static function getCurrentLocale()
     {
         // GET 參數優先
