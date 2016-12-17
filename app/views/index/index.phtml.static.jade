@@ -80,13 +80,13 @@
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-list-ul
-        input.form-control.input-lg(name="news_title", placeholder="<?= _i18n('新聞標題') ?>", value!="<?= $this->escape($this->data['news_title']) ?>", required)
+        input.form-control.input-lg(name="news_title", placeholder!="<?= _i18n('新聞標題') ?>", value!="<?= $this->escape($this->data['news_title']) ?>", required)
     .form-group
       label.control-label(for="report_title") <?= _i18n('您覺得這則新聞有什麼問題？') ?>
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-warning-sign
-        input.form-control.input-lg(name="report_title", placeholder="<?= _i18n('問題重點') ?>", required)
+        input.form-control.input-lg(name="report_title", placeholder!="<?= _i18n('問題重點') ?>", required)
     .form-group
       label.control-label(for="report_link") <?= _i18n('真相貼上相關真相的連結，以佐證您的回報') ?>
       .input-group.input-group-lg
@@ -94,7 +94,7 @@
           i.icon-quote-left
         input.form-control.input-lg(type="url", name="report_link", placeholder="http://", required)
     .form-group.submit-btn
-      button.btn.btn-info.btn-lg.btn-block(type="submit", value="<?= _i18n('確定回報') ?>")
+      button.btn.btn-info.btn-lg.btn-block(type="submit", value!="<?= _i18n('確定回報') ?>")
         i.icon-ok
         | <?= _i18n('我都填好了，確定回報！') ?>
     input(type="hidden", name="sToken", value!="<?= Helper::getStoken() ?>")
