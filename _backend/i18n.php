@@ -20,8 +20,9 @@ if (array_key_exists('locale', $_COOKIE) and $_COOKIE['locale'] and $l = json_de
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
 </head>
 <body>
-NewHelper i18n Helper
 <div class="container">
+    <h1>NewHelper i18n Helper</h1>
+    關於新聞小幫手翻譯，可參考:<a href="https://g0v.hackpad.com/v76DaDdfUDl">https://g0v.hackpad.com/v76DaDdfUDl</a>
     <form method="post" id="form">
         <table class="table">
             <tr>
@@ -60,6 +61,9 @@ $('#form').submit(function(e){
         }
     });
     $.post('i18n.php?method=save_config', 'locale=' + encodeURIComponent(JSON.stringify(map)), function(){
+        alert('測試資料更新成功');
+        document.location = document.location;
+        
     });
 });
 </script>
