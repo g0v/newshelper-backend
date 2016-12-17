@@ -12,7 +12,7 @@ echo "[*] copying backend to _public/"
 cp -rf _backend _public
 
 echo "[*] building static assets"
-lsc -cbs < config.ls > brunch-config.js
+./node_modules/.bin/lsc -cbs < config.ls > brunch-config.js
 ./node_modules/.bin/brunch build --production
 
 echo "[*] copying asset files into _public/"
