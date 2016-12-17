@@ -1,19 +1,19 @@
 <?php
 $column_map = array(
-'updated_at' => '修改時間',
-'report_link' => '真相連結',
-'report_title' => '問題重點',
-'news_link' => '新聞連結',
-'news_title' => '新聞標題',
-'deleted_at' => '刪除時間',
-'created_at' => '建立時間',
-'deleted_reason' => '刪除原因',
+'updated_at' => _i18n('修改時間'),
+'report_link' => _i18n('真相連結'),
+'report_title' => _i18n('問題重點'),
+'news_link' => _i18n('新聞連結'),
+'news_title' => _i18n('新聞標題'),
+'deleted_at' => _i18n('刪除時間'),
+'created_at' => _i18n('建立時間'),
+'deleted_reason' => _i18n('刪除原因'),
 );
 ?>
 
 dl.dl-horizontal
   <?php if ($this->revert_button) { ?>
-  <dt></dt><dd><a href="#" class="revert-version">退回此版本</a></dd>
+  <dt></dt><dd><a href="#" class="revert-version"><?= _i18n('退回此版本') ?></a></dd>
   <?php } ?>
   <?php foreach ($this->value as $k => $v) { ?>
   <dt><?= $this->escape(array_key_exists($k, $column_map) ? $column_map[$k] : $k) ?></dt>

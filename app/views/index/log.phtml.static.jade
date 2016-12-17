@@ -2,33 +2,33 @@
 .container.show-news#show
   h1
     i.icon-quote-left
-    | 關於本則回報 (#<? $this->report->id ?>)
+    | <?= _i18n('關於本則回報') ?> (#<? $this->report->id ?>)
     i.icon-quote-right
   .news-details
     blockquote
-      h2 新聞標題
+      h2 <?= _i18n('新聞標題') ?>
       p <?= $this->escape($this->report->news_title) ?>
     blockquote
-      h2 新聞連結
+      h2 <?= _i18n('新聞連結') ?>
       p
         a(href!="<?= $this->escape($this->report->news_link) ?>") <?= $this->escape($this->report->news_link) ?>
     blockquote
-      h2 問題重點
+      h2 <?= _i18n('問題重點') ?>
       p <?= $this->escape($this->report->report_title) ?>
     blockquote
-      h2 相關真相連結
+      h2 <?= _i18n('相關真相連結') ?>
       p
         a(href!="<?= $this->escape($this->report->report_link) ?>") <?= $this->escape($this->report->report_link) ?>
     <?php if ($this->report->deleted_at) { ?>
     blockquote.delete-reason
-      h2 本回報已被刪除
+      h2 <?= _i18n('本回報已被刪除') ?>
       p <?= $this->escape($this->report->getDeleteReason()) ?>
     <?php } ?>
     blockquote.edit-btn
-      p 我覺得這則回報有問題…
-        a.show-edit-form-btn 我要協助修正！<br>
-        | // 小幫手提醒您，每次修正都會被詳實地記錄下來（包含修正者的 IP 地址）
-        | // 若是該新聞已經被刪除或是修正完成，請勿將此回報刪除，可以在理由後面加上（已修正），以避免在社群網站仍有人在轉貼而不知
+      p <?= _i18n('我覺得這則回報有問題…') ?>
+        a.show-edit-form-btn <?= _i18n('我要協助修正！') ?><br>
+        | <?= _i18n('// 小幫手提醒您，每次修正都會被詳實地記錄下來（包含修正者的 IP 地址）') ?>
+        | <?= _i18n('// 若是該新聞已經被刪除或是修正完成，請勿將此回報刪除，可以在理由後面加上（已修正），以避免在社群網站仍有人在轉貼而不知') ?>
 
 .container.report-form#edit(style="display: none")
   h1
@@ -38,26 +38,26 @@
   form.form-horizontal(role="form", method="POST", action!='<?= "/index/edit/{$this->report->id}" ?>')
     input(type="hidden", name="sToken", value!="<?= Helper::getStoken() ?>")
     .form-group
-      label.control-label(for="news_link") 新聞連結
+      label.control-label(for="news_link") <?= _i18n('新聞連結') ?>
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-link
         input.form-control.input-lg(type="url", name="news_link", placeholder="http://", required, value!="<?= $this->escape($this->report->news_link) ?>")
     .form-group
       label.control-label(for="news_title")
-        | 新聞標題
+        | <?= _i18n('新聞標題') ?>
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-list-ul
-        input.form-control.input-lg(name="news_title", placeholder="新聞標題", required, value!="<?= $this->escape($this->report->news_title) ?>")
+        input.form-control.input-lg(name="news_title", placeholder="<?= _i18n('新聞標題') ?>", required, value!="<?= $this->escape($this->report->news_title) ?>")
     .form-group
-      label.control-label(for="report_title") 問題重點
+      label.control-label(for="report_title") <?= _i18n('問題重點') ?>
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-warning-sign
-        input.form-control.input-lg(name="report_title", placeholder="問題重點", required, value!="<?= $this->escape($this->report->report_title) ?>")
+        input.form-control.input-lg(name="report_title", placeholder="<?= _i18n('問題重點') ?>", required, value!="<?= $this->escape($this->report->report_title) ?>")
     .form-group
-      label.control-label(for="report_link") 相關真相連結
+      label.control-label(for="report_link") <?= _i18n('相關真相連結') ?>
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-quote-left
@@ -68,15 +68,15 @@
       <?php } else { ?>
       input(type="checkbox", name="delete", value="1")
       <?php } ?>
-      label.control-label(for="deleted_reason") 我要刪除這則回報（請填寫刪除原因）
+      label.control-label(for="deleted_reason") <?= _i18n('我要刪除這則回報（請填寫刪除原因）') ?>
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-trash
-        input.form-control.input-lg(name="deleted_reason", placeholder="刪除原因", value!="<?= $this->escape($this->report->getDeleteReason()) ?>")
+        input.form-control.input-lg(name="deleted_reason", placeholder="<?= _i18n('刪除原因') ?>", value!="<?= $this->escape($this->report->getDeleteReason()) ?>")
     .form-group.submit-btn
       button.btn.btn-success.btn-lg.btn-block(type="submit")
         i.icon-ok
-        | 好了，照這樣改吧！
+        | <?= _i18n('好了，照這樣改吧！') ?>
 
 .container.main#forum
   #fb-root
@@ -97,15 +97,15 @@
 .container.main#logs
   h1
     i.icon-quote-left
-    | 詳細編修記錄
+    | <?= _i18n('詳細編修記錄') ?>
     i.icon-quote-right
   table.table
     thead
       tr.news
-        th.timestamp 時間
-        th.editor 修改人
-        th.old-val 舊值
-        th.new-val 新值
+        th.timestamp <?= _i18n('時間') ?>
+        th.editor <?= _i18n('修改人') ?>
+        th.old-val <?= _i18n('舊值') ?>
+        th.new-val <?= _i18n('新值') ?>
     tbody
       <?php foreach (ReportChangeLog::search(array('report_id' => $this->report->id))->order('updated_at DESC') as $change_log) { ?>
       tr.news
@@ -128,7 +128,7 @@ script.
 
     $(".revert-version").click(function(e){
       e.preventDefault();
-      if (confirm("確定要退回" + $(this).parents('td.old-val').find('.data-news_title').text())) {
+      if (confirm(<?= json_encode(_i18n("確定要退回")) ?> + $(this).parents('td.old-val').find('.data-news_title').text())) {
         if ($(this).parents('td.old-val').find('.data-news_title').length) {
           $('input[name="news_title"]').val($.trim($(this).parents('td.old-val').find('.data-news_title').text()));
         }

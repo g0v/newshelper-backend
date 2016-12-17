@@ -2,30 +2,30 @@
 .container.masthead
   .left
     h1
-      | 新聞<b>小幫手</b>
-    p.lead 揪出問題新聞、守護您的網路閱聽品質
+      | <?= _i18n('新聞<b>小幫手</b>') ?>
+    p.lead <?= _i18n('揪出問題新聞、守護您的網路閱聽品質') ?>
     .report-news
       a.btn.btn-lg.btn-danger.btn-report(href="#report")
         i.icon-plus
-        | 我也想盡一份心，立刻<b>回報問題新聞</b>
+        | <?= _i18n('我也想盡一份心，立刻<b>回報問題新聞</b>') ?>
         | ！
       .description
         i.icon-comments
-        | 問題新聞 — 具有明顯的客觀錯誤，例如：<b>沒有任何科學根據佐證</b>的報導
+        | <?= _i18n('問題新聞 — 具有明顯的客觀錯誤，例如：<b>沒有任何科學根據佐證</b>的報導') ?>
     .downloads
       .description
         i.icon-ok
-        | 下載瀏覽器擴充套件，現在就把小幫手帶回家
+        | <?= _i18n('下載瀏覽器擴充套件，現在就把小幫手帶回家') ?>
       div.download-btns
         a.btn.btn-info(href="https://chrome.google.com/webstore/detail/%E6%96%B0%E8%81%9E%E5%B0%8F%E5%B9%AB%E6%89%8B/hkenpfplphndcndhhhldecaammpmopoc")
           i.icon-cloud-download
-          | Chrome 點我
+          | <?= _i18n('Chrome 點我') ?>
         a.btn.btn-info(href="https://addons.mozilla.org/zh-TW/firefox/addon/newshelper-firefox/")
           i.icon-cloud-download
-          | Firefox 點我
+          | <?= _i18n('Firefox 點我') ?>
         a.btn.btn-info(href="https://github.com/yllan/newshelper-safari")
           i.icon-cloud-download
-          | Safari 點我
+          | <?= _i18n('Safari 點我') ?>
     .socials
       .g-plusone(data-size="medium")
       iframe(src="//ghbtns.com/github-btn.html?user=g0v&repo=newshelper-extension&type=watch&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="110", height="20")
@@ -34,79 +34,79 @@
 .container.features#features
   h1
     i.icon-quote-left
-    | 功能總覽
+    | <?= _i18n('功能總覽') ?>
     i.icon-quote-right
   .feature
     img(src="/images/facebook-warning.png")
     .title
       i.icon-zoom-in
-      | 即時監測問題新聞
+      | <?= _i18n('即時監測問題新聞') ?>
     .description
-      | 瀏覽 Facebook 等各大網站時，由本地資料庫資訊在瀏覽器內即時檢查新聞是否曾被回報，<b>不會傳回任何瀏覽記錄，兼顧隱私與網路閱聽品質</b>。
+      | <?= _i18n('瀏覽 Facebook 等各大網站時，由本地資料庫資訊在瀏覽器內即時檢查新聞是否曾被回報，<b>不會傳回任何瀏覽記錄，兼顧隱私與網路閱聽品質</b>。') ?>
   .feature
     img(src="/images/facebook-button.png")
     .title
       i.icon-thumbs-up-alt
-      | 整合式回報按鈕
+      | <?= _i18n('整合式回報按鈕') ?>
     .description
-      | 在 Facebook 介面完美整合回報按鈕，簡單一個步驟即可回報問題新聞，您隨時也能為守護網路閱聽品質盡一份心力！
+      | <?= _i18n('在 Facebook 介面完美整合回報按鈕，簡單一個步驟即可回報問題新聞，您隨時也能為守護網路閱聽品質盡一份心力！') ?>
   .feature
     img(src="/images/notifications.png")
     .title
       i.icon-refresh
-      | 背景提醒訊息
+      | <?= _i18n('背景提醒訊息') ?>
     .description
-      | 新聞小幫手會默默地在背景更新本地資料，若發現您曾經讀過的新聞被加入回報資訊，將彈出訊息提醒，滴水不漏地守護您。
+      | <?= _i18n('新聞小幫手會默默地在背景更新本地資料，若發現您曾經讀過的新聞被加入回報資訊，將彈出訊息提醒，滴水不漏地守護您。') ?>
   div(style="clear: both;")
   .introduction
-    blockquote 在媒體亂象日趨嚴重當下，「新聞小幫手」藉助科技與群眾的力量，提供一個平台讓每個人回報有問題的新聞，並且透過瀏覽器擴充套件即時監控每一個網頁，當發現您正在瀏覽可能有問題的媒體資訊時，「新聞小幫手」會適時提醒您要抱持懷疑的態度來審視網路上的訊息，期盼結合每個人的貢獻，共同提升網路閱聽品質。
-    blockquote.footnote「新聞小幫手」所有檢測都在您的電腦裡完成，不會傳送任何瀏覽記錄，無需擔心任何上網隱私外洩。<br/>所有擴充套件皆為完全開放原始碼的專案，若有任何疑慮可以閱讀原始碼以求證安全性。
+    blockquote <?= _i18n('在媒體亂象日趨嚴重當下，「新聞小幫手」藉助科技與群眾的力量，提供一個平台讓每個人回報有問題的新聞，並且透過瀏覽器擴充套件即時監控每一個網頁，當發現您正在瀏覽可能有問題的媒體資訊時，「新聞小幫手」會適時提醒您要抱持懷疑的態度來審視網路上的訊息，期盼結合每個人的貢獻，共同提升網路閱聽品質。') ?>
+    blockquote.footnote <?= _i18n('「新聞小幫手」所有檢測都在您的電腦裡完成，不會傳送任何瀏覽記錄，無需擔心任何上網隱私外洩。<br/>所有擴充套件皆為完全開放原始碼的專案，若有任何疑慮可以閱讀原始碼以求證安全性。') ?>
 
 .container.report-form#report
   h1
     i.icon-quote-left
-    | 我要回報新聞
+    | <?= _i18n('我要回報新聞') ?>
     i.icon-quote-right
   form.form-horizontal(role="form", method="POST", action="/index/add")
     .form-group
-      label.control-label(for="news_link") 請貼上新聞連結
+      label.control-label(for="news_link") <?= _i18n('請貼上新聞連結') ?>
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-link
         input.form-control.input-lg(type="url", name="news_link", value!="<?= $this->escape($this->data['news_link']) ?>", placeholder="http://", required)
     .form-group
       label.control-label(for="news_title")
-        | 請填寫新聞標題
+        | <?= _i18n('請填寫新聞標題') ?>
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-list-ul
-        input.form-control.input-lg(name="news_title", placeholder="新聞標題", value!="<?= $this->escape($this->data['news_title']) ?>", required)
+        input.form-control.input-lg(name="news_title", placeholder="<?= _i18n('新聞標題') ?>", value!="<?= $this->escape($this->data['news_title']) ?>", required)
     .form-group
-      label.control-label(for="report_title") 您覺得這則新聞有什麼問題？
+      label.control-label(for="report_title") <?= _i18n('您覺得這則新聞有什麼問題？') ?>
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-warning-sign
-        input.form-control.input-lg(name="report_title", placeholder="問題重點", required)
+        input.form-control.input-lg(name="report_title", placeholder="<?= _i18n('問題重點') ?>", required)
     .form-group
-      label.control-label(for="report_link") 真相貼上相關真相的連結，以佐證您的回報
+      label.control-label(for="report_link") <?= _i18n('真相貼上相關真相的連結，以佐證您的回報') ?>
       .input-group.input-group-lg
         span.input-group-addon
           i.icon-quote-left
         input.form-control.input-lg(type="url", name="report_link", placeholder="http://", required)
     .form-group.submit-btn
-      button.btn.btn-info.btn-lg.btn-block(type="submit", value="確定回報")
+      button.btn.btn-info.btn-lg.btn-block(type="submit", value="<?= _i18n('確定回報') ?>")
         i.icon-ok
-        | 我都填好了，確定回報！
+        | <?= _i18n('我都填好了，確定回報！') ?>
     input(type="hidden", name="sToken", value!="<?= Helper::getStoken() ?>")
 
 .container.main#reported
   h1
     i.icon-quote-left
-    | 已回報新聞
+    | <?= _i18n('已回報新聞') ?>
     i.icon-quote-right
   div
     span.show-deleted.pull-right
-      span.desc 顯示已被刪除的新聞
+      span.desc <?= _i18n('顯示已被刪除的新聞') ?>
       label.checkbox.toggle.candy(style="width: 100px")
         input(type="checkbox", name="show_deleted")
         p
@@ -117,11 +117,11 @@
   table.table
     thead
       tr.news
-        th.update-at 最後更新
-        th.news-title 新聞
-        th.problem 問題點
-        th.reflink 真相
-        th.manage 管理
+        th.update-at <?= _i18n('最後更新') ?>
+        th.news-title <?= _i18n('新聞') ?>
+        th.problem <?= _i18n('問題點') ?>
+        th.reflink <?= _i18n('真相') ?>
+        th.manage <?= _i18n('管理') ?>
     tbody
       <?php foreach (Report::search($this->search_query)->offset($this->per_page * ($this->page - 1))->limit($this->per_page)->order('updated_at DESC') as $report) { ?>
       tr.news(class!="<?= $report->deleted_at ? 'delete' : '' ?>")
@@ -136,22 +136,22 @@
           <?php if ($report->deleted_at) { ?>
           hr
           span.deleted
-            | 已於<?= $this->partial('/helper/counttime.phtml', arraY('time' => $report->deleted_at)) ?>被刪除：<?= $this->escape($report->getDeleteReason()) ?>
+            | <?= sprintf(_i18n('已於%s被刪除：%s'), $this->partial('/helper/counttime.phtml', arraY('time' => $report->deleted_at)), $this->escape($report->getDeleteReason())) ?>
           <?php } ?>
         td.problem
           | <?= $this->escape($report->report_title) ?>
         td.reflink
           a.btn.btn-primary.btn-xs(href!="<?= $this->escape($report->report_link) ?>", target="_blank", rel="nofollow")
-            | 連結
+            | <?= _i18n('連結') ?>
             i.icon-signin
         td.manage
           p
             a.btn.btn-success.btn-xs(href!="/index/log/<?= $report->id ?>#forum")
-              | 詳情
+              | <?= _i18n('詳情') ?>
               i.icon-zoom-in
           p
             a.btn.btn-warning.btn-xs(href!="/index/log/<?= $report->id ?>")
-              | 修改
+              | <?= _i18n('修改') ?>
               i.icon-wrench
       <?php } ?>
   <?= $this->partial('/common/pager.phtml', $this) ?>
