@@ -80,8 +80,16 @@ class I18nLib
         return self::$locale_maps[$locale] = $ret;
     }
 
-    public static function i18n($str)
+    public static function i18n($str, $force_locale = null)
     {
+        if (!is_null($force_locale)) {
+            $locale_map = self::getLocaleMap($force_locale);
+            if (array_key_Exists($str, $locale_map)) {
+                return $locale_map[$str];
+            }
+            return '';
+        }
+
         $locale = self::getCurrentLocale();
         if ($locale == 'zh-tw') {
             return $str;
