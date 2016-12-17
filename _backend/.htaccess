@@ -4,4 +4,5 @@ RewriteRule css/ - [L]
 RewriteRule images/ - [L]
 RewriteRule js/ - [L]
 RewriteRule fonts/ - [L]
+RewriteRule i18n.php.* - [L]
 RewriteRule .* index.php
