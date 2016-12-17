@@ -70,6 +70,12 @@ class I18nLib
                 $ret[$rows[0]] = $rows[1];
             }
         }
+
+        if (array_key_exists('locale', $_COOKIE) and $_COOKIE['locale'] and $l = json_decode($_COOKIE['locale']) and property_exists($l, $locale)) {
+            foreach ($l->{$locale} as $k => $v) {
+                $ret[$k] = $v;
+            }
+        }
         fclose($fp);
         return self::$locale_maps[$locale] = $ret;
     }
