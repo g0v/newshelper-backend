@@ -12,6 +12,12 @@ Pix_Loader::registerAutoLoad();
 if (file_exists(__DIR__ . '/../../config.php')) {
     include(__DIR__ . '/../../config.php');
 }
+
+function _i18n($str)
+{
+    return I18nLib::i18n($str);
+}
+
 // TODO: 之後要搭配 geoip
 date_default_timezone_set('Asia/Taipei');
 
