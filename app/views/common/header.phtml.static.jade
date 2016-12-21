@@ -6,16 +6,16 @@ head
   meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
   meta(name="viewport", content="width=device-width, initial-scale=1.0")
   meta(name="author", content="Shao-Chung Chen")
-  meta(name="description", content="「新聞小幫手」瀏覽器擴充套件，隨時偵測問題新聞以守護您的網路閱聽品質")
+  meta(name="description", content!="<?= _i18n('「新聞小幫手」瀏覽器擴充套件，隨時偵測問題新聞以守護您的網路閱聽品質') ?>")
   meta(property="og:image", content="http://newshelper.g0v.tw/images/newshelper-scaled-256x256.png")
   meta(property="og:locale", content="zh_TW")
   meta(property="og:site_name", content="新聞小幫手 Newshelper")
   <?php if ($this->report) { ?>
   meta(property="og:description", content!="<?= $this->escape($this->report->report_title) ?>")
   <?php } else { ?>
-  meta(property="og:description", content="「新聞小幫手」瀏覽器擴充套件，隨時偵測問題新聞以守護您的網路閱聽品質")
+  meta(property="og:description", content!="<?= _i18n('「新聞小幫手」瀏覽器擴充套件，隨時偵測問題新聞以守護您的網路閱聽品質') ?>")
   <?php } ?>
-  title <?= $this->title ? $this->escape($this->title . ' - ') : '' ?>新聞小幫手
+  title <?= $this->title ? $this->escape($this->title . ' - ') : '' ?><?= _i18n('新聞小幫手') ?>
   link(rel="stylesheet", href="/css/app.css")
   link(rel="SHORTCUT ICON", href="/images/icon.png")
   script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
