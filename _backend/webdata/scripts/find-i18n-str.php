@@ -2,6 +2,7 @@
 
 $pathes = array(
     __DIR__ . '/../../../app/views/index/',
+    __DIR__ . '/../../../app/views/common/',
 );
 
 $strings = array();
@@ -15,9 +16,16 @@ foreach ($pathes as $path) {
     }
 }
 
+$lines = array_map('trim', file(__DIR__ . '/../locales/zh-tw.csv'));
+
 $strings = array_keys($strings);
-$output = fopen(__DIR__ . '/../locales/zh-tw.csv', 'w');
-fputcsv($output, array("中文", "翻譯"));
+$zh_tw = fopen(__DIR__ . '/../locales/zh-tw.csv', 'a');
+$new = fopen(__DIR__ . '/../locales/new-zh-tw.csv', 'w');
+
 foreach ($strings as $s) {
-    fputcsv($output, array($s, ''));
+    if (in_array($s, $lines)) {
+        continue;
+    }
+    fputs($zh_tw, $s. "\n");
+    fputs($new, $s. "\n");
 }
