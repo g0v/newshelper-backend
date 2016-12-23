@@ -3,15 +3,15 @@ span.counttime(data-timestamp!="<?= $this->time ?>", title!="<?= date('Y/m/d H:i
   <?php if ($this->time == 0) { ?>
   never
   <?php } elseif ($delta < 10) { ?>
-  <?= $delta ?>秒前
+  <?= sprintf(_i18n('%d 秒前'), $delta) ?>
   <?php } elseif ($delta < 60) { ?>
-  <?= 10 * ceil($delta / 10) ?>秒前
+  <?= sprintf(_i18n('%d 秒前'), 10 * ceil($delta / 10)) ?>
   <?php } elseif ($delta < 60 * 60) { ?>
-  <?= floor($delta / 60) ?>分鐘前
+  <?= sprintf(_i18n('%d 分鐘前'), floor($delta / 60)) ?>
   <?php } elseif ($delta < 60 * 60 * 24) { ?>
-  <?= floor($delta / 60 / 60) ?>小時前
+  <?= sprintf(_i18n('%d 小時前'), floor($delta / 60 / 60)) ?>
   <?php } elseif ($delta < 60 * 60 * 24 * 365) { ?>
-  <?= floor($delta / 60 / 60 / 24) ?>天前
+  <?= sprintf(_i18n('%d 天前'), floor($delta / 60 / 60 / 24)) ?>
   <?php } else { ?>
-  一年前
+  <?= i18n('超過一年前') ?>
   <?php } ?>
