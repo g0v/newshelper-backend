@@ -3,7 +3,9 @@
 $pathes = array(
     __DIR__ . '/../../../app/views/index/',
     __DIR__ . '/../../../app/views/common/',
+    __DIR__ . '/../../../app/views/helper/',
 );
+
 
 $strings = array();
 foreach ($pathes as $path) {
