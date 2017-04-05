@@ -169,7 +169,10 @@ class Pix_Table_Db_Adapter_SQL extends Pix_Table_Db_Adapter_Abstract
         $select_expression = $this->_getSelectExpression($table, $select_columns);
 
         $sql = 'SELECT ' . $select_expression . ' FROM ' . $this->column_quote($table->getTableName());
-	$sql .= ' WHERE ';
+        if ($search->index()) {
+            $sql .= " USE INDEX (" . $search->index() . ") ";
+        }
+        $sql .= ' WHERE ';
         $sql .= $this->_get_where_clause($search, $table);
         $sql .= $this->_get_clause($search);
 
@@ -217,6 +220,37 @@ class Pix_Table_Db_Adapter_SQL extends Pix_Table_Db_Adapter_Abstract
         $sql .= $this->_get_where_clause(Pix_Table_Search::factory(array_combine($table->getPrimaryColumns(), $row->getPrimaryValues())), $table);
 
 	return $this->query($sql);
+    }
+
+    /**
+     * bulk insert
+     *
+     * @param Pix_Table $table
+     * @param array $keys
+     * @param array $values_list
+     * @param array $options
+     * @access public
+     * @return void
+     */
+    public function bulkInsert($table, $keys, $values_list, $options = array())
+    {
+        if (array_key_exists('replace', $options) and $options['replace']) {
+            $sql = 'REPLACE INTO ';
+        } else if (array_key_exists('ignore', $options) and $options['ignore']) {
+            $sql = 'INSERT IGNORE INTO ';
+        } else {
+            $sql = 'INSERT INTO ';
+        }
+        $sql .= $this->column_quote($table->getTableName());
+        $sql .= ' (' . implode(',', array_map(array($this, 'column_quote'), $keys)) . ')';
+        $sql .= ' VALUES ';
+        $sql .= implode(',', array_map(function($values) use ($table, $keys){
+            return '(' . implode(',', array_map(function($value, $key) use ($table){
+                return $this->quoteWithColumn($table, $value, $key);
+            }, $values, $keys)) . ')';
+        }, $values_list));
+
+        $this->query($sql);
     }
 
     /**
