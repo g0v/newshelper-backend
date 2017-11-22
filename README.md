@@ -22,7 +22,7 @@ http://newshelper.g0v.tw/
 
  1. 在 prompt 中執行以下語法
 
-   `Report::createTable(); ReportChangeLog::createTable();`
+   `Report::createTable(); ReportChangeLog::createTable();` (記得要先裝 `php-mysqlnd`)
 
  1. 如果以上沒有任何錯誤訊息，代表資料庫建立完成了。
 
