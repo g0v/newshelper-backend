@@ -8,7 +8,7 @@ http://newshelper.g0v.tw/
 ========
  1. 建立一個 mysql 資料庫
 
-   `echo 'create database newshelper-db' | mysql -u root`
+   `echo 'create database `newshelper-db`' | mysql -u root`
 
  1. 建立一組 mysql 資料庫帳號密碼
 
