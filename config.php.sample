@@ -4,6 +4,13 @@ putenv('DATABASE_URL=mysql://{username}:{password}@{host}/{database_name}');
 putenv('SESSION_SECRET={random_word}');
 
 // 將這個檔案 copy 成 config.php 就可以在自己的環境使用
+//
+// 範例
+// putenv('DATABASE_URL=mysql://root:MYpassWordIshere@localhost/newshelper-db');
+// putenv('SESSION_SECRET=NEWS');
+//
+//
 // ======= 建立 table ========
 // 指定好 DATABASE_URL 之後，可以執行 php ./_backend/webdata/prompt.php 進入 cli mode
 // 然後輸入 Report::createTable(); ReportChangeLog::createTable() 建立新的 table
+
